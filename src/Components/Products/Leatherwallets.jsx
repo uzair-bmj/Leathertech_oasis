@@ -12,22 +12,34 @@ export default function Leatherwallets() {
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
+  const [existingitemmodal, setexistingitemmodal] = useState(false)
+
 
   function pushtocart(index) {
     if (verifyuser) {
       if (wallets && wallets[index]) {
-        const cartobject = {
-          proimg: wallets[index].imgurl,
-          proname: wallets[index].Productname,
-          proprice: wallets[index].productPrice,
-          proquantity: 1
+        const existingItem = cartitems.find(
+          (item) => item.proname === wallets[index].Productname && item.index === index
+        );
+        if (!existingItem) {
+          const cartobject = {
+            proimg: wallets[index].imgurl,
+            proname: wallets[index].Productname,
+            proprice: wallets[index].productPrice,
+            proquantity: 1,
+            index : index
 
-        };
+          };
 
-        cartitems.push(cartobject)
-        setcartmsg(true);
-        console.log(cartitems);
+          cartitems.push(cartobject)
+          setcartmsg(true);
+          console.log(cartitems);
+        }
+        else {
+          setexistingitemmodal(true)
+        }
       }
+      
     } else {
       setloginmodal(true)
     }
@@ -42,7 +54,7 @@ export default function Leatherwallets() {
           <h1 className='text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER WALLETS</h1>
         </div>
         <div className='text-center mt-5'>
-          <h1 className='text-gray-500 text-3xl font-bold'>WALLETS -<span className='text-2xl' style={{color : "rgb(255, 187, 51)"}}> that carry stories.</span></h1>
+          <h1 className='text-gray-500 text-3xl font-bold'>WALLETS -<span className='text-2xl' style={{ color: "rgb(255, 187, 51)" }}> that carry stories.</span></h1>
         </div>
         <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
           {
@@ -82,6 +94,17 @@ export default function Leatherwallets() {
               <div className='container rounded shadow-lg py-4 px-4 max-w-[15rem]'>
                 <h1 className='text-xl font-medium'>Login First</h1>
                 <button className='modalbtn py-1 mt-2 px-4 text-xl rounded-xl font-medium' onClick={() => setloginmodal(false)}>Ok</button>
+              </div>
+            </>
+          )
+        }
+        {
+          existingitemmodal && (
+            <>
+              <div className='modal-wrapper' onClick={() => setexistingitemmodal(false)}></div>
+              <div className='container rounded shadow-lg py-4 px-4 max-w-[15rem]'>
+                <h1 className='text-xl font-medium'>Item is already in cart</h1>
+                <button className='modalbtn py-1 mt-2 px-4 text-xl rounded-xl font-medium' onClick={() => setexistingitemmodal(false)}>Ok</button>
               </div>
             </>
           )

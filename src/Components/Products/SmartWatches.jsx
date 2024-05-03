@@ -12,23 +12,36 @@ export default function SmartWatches() {
   const { verifyuser } = useAuth()
   const [cartmsg, setcartmsg] = useState(false)
   const [loginmodal, setloginmodal] = useState(false)
+  const [existingitemmodal, setexistingitemmodal] = useState(false)
+
 
   const { watches } = useProduct()
 
   const pushtocart = (index) => {
     if (verifyuser) {
+      if (watches && watches[index]) {
+        const existingItem = cartitems.find(
+          (items) => items.proname == watches[index].Productname && items.index == index
+        )
+        if (!existingItem) {
+          const cartobj = {
+            proimg: watches[index].imgurl,
+            proname: watches[index].Productname,
+            proprice: watches[index].productPrice,
+            proquantity: 1,
+            index: index
 
-      const cartobj = {
-        proimg: watches[index].imgurl,
-        proname: watches[index].Productname,
-        proprice: watches[index].productPrice,
-        proquantity: 1
-
+          }
+          cartitems.push(cartobj)
+          console.log(cartitems)
+          setcartmsg(true)
+        }
+        else {
+          setexistingitemmodal(true)
+        }
       }
-      cartitems.push(cartobj)
-      console.log(cartitems)
-      setcartmsg(true)
-    } else {
+    }
+    else {
       setloginmodal(true)
     }
 
@@ -85,6 +98,17 @@ export default function SmartWatches() {
               <div className='container rounded shadow-lg py-4 px-4 max-w-[15rem]'>
                 <h1 className='text-xl font-medium'>Login First</h1>
                 <button className='modalbtn py-1 mt-2 px-4 text-xl rounded-xl font-medium' onClick={() => setloginmodal(false)}>Ok</button>
+              </div>
+            </>
+          )
+        }
+        {
+          existingitemmodal && (
+            <>
+              <div className='modal-wrapper' onClick={() => setexistingitemmodal(false)}></div>
+              <div className='container rounded shadow-lg py-4 px-4 max-w-[15rem]'>
+                <h1 className='text-xl font-medium'>Item is already in cart</h1>
+                <button className='modalbtn py-1 mt-2 px-4 text-xl rounded-xl font-medium' onClick={() => setexistingitemmodal(false)}>Ok</button>
               </div>
             </>
           )
