@@ -1,0 +1,41 @@
+/* custom-slider.css */
+.slick-prev:before,
+.slick-next:before {
+    color: rgb(255, 187, 51) !important; /* Change this color to your desired color */
+    font-size: 25px;
+
+}
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(189, 189, 189, 0.9);
+
+
+    
+}
+.container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    background-color: white;
+
+
+}
+
+.modalbtn{
+    border: 1px solid rgb(187, 144, 57);
+    color: rgb(187, 144, 57);
+    transform: scale(0.9);
+}
+.modalbtn:hover{
+    border: none;
+    background-color: rgb(187, 144, 57);
+    color: white;
+    transition: all .2s;
+    transform: scale(1.1);
+}

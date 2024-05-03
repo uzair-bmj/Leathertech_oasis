@@ -1,0 +1,62 @@
+.login input{
+    background-color: rgba(255, 187, 51, 0.205);
+}
+
+.btn{
+    background-color: rgb(250, 189, 66);
+    color: rgb(250, 189, 66);
+    
+}
+:hover.btn{
+    background-color: #cc962a;
+    transform: scale(1.1);
+    transition: all .5s;
+}
+.sbtn{
+    border: 1px solid rgb(255, 187, 51);
+    color: rgb(255, 187, 51);
+}
+:hover.sbtn{
+    background-color: rgb(255, 187, 51);
+    color: white;
+    transition: .5s all;
+    transform: scale(1.1);
+
+}
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(189, 189, 189, 0.9);
+    
+}
+.container{
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    width: 30px;
+    background-color: white;
+}
+
+.containerlog{
+    position: fixed;
+    top: 50%;
+    left: 40%;
+    width: 40px;
+    background-color: white;
+}
+
+.modalbtn{
+    border: 1px solid rgb(187, 144, 57);
+    color: rgb(187, 144, 57);
+    transform: scale(0.9);
+}
+.modalbtn:hover{
+    border: none;
+    background-color: rgb(187, 144, 57);
+    color: white;
+    transition: all .2s;
+    transform: scale(1.1);
+}
