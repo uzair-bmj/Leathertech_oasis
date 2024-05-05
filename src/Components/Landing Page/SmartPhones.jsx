@@ -92,7 +92,7 @@ export default function SmartPhones() {
 
     return (
         <div className='w-[95vw] mt-10 px-10 py-6 bg-gray-100 m-auto rounded-xl'>
-            <h1 className='text-2xl font-bold mx-4'>Best of Smartphones</h1>
+            <h1 className='text-2xl font-bold mx-4 text-center md:text-start'>Best of Smartphones</h1>
 
             <Slider {...settings}>
                 {phoneData.map((items, index) => (
@@ -105,7 +105,7 @@ export default function SmartPhones() {
                                 <div className='font-bold text-lg mb-2'>{items.Productname}</div>
                                 <p className='text-gray-700 text-base'>Price: ${items.productPrice}</p>
                                 <p className='text-gray-700 text-base underline cursor-pointer'>{items.reviews} reviews</p>
-                                <i class="fa-solid fa-cart-shopping absolute right-20 lg:right-10 top-[88%] cart" style={{ fontSize: "18px" }} onClick={() => pushtocart(index)}></i>
+                                <i class="fa-solid fa-cart-shopping absolute top-[88%] cart" style={{ fontSize: "18px" }} onClick={() => pushtocart(index)}></i>
                             </div>
 
                         </div>

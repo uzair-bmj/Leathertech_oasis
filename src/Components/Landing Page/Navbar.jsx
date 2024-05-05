@@ -77,7 +77,7 @@ export default function Navbar() {
                 <div className='flex justify-between items-center'>
 
                     <i class="fa-solid fa-bars cursor-pointer baricon" style={{ fontSize: "18px" }} onClick={show}></i>
-                    <h1 className='text-lg font-bold'>LeatherTech Oasis</h1>
+                    <h1 className='text-md sm:text-lg font-bold'>LeatherTech Oasis</h1>
                     {verifyuser ? (
                         <div className='flex justify-between w-[20vw] sm:w-[10vw]'>
                             <i className="fa-regular fa-user cursor-pointer icon" style={{ fontSize: "18px" }} onClick={() => nav('/profile')}></i>

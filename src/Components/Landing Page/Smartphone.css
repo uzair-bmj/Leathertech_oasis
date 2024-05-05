@@ -1,11 +1,50 @@
 /* custom-slider.css */
 .slick-prev:before,
 .slick-next:before {
-    color: rgb(255, 187, 51) !important; /* Change this color to your desired color */
+    color: rgb(255, 187, 51) !important;
+    /* Change this color to your desired color */
     font-size: 25px;
 
 }
-.modal-wrapper{
+
+@media screen and (max-width :400px) {
+    .cart {
+        right: 40px;
+    }
+
+}
+@media screen and (min-width :400px) {
+    .cart {
+        right: 80px;
+    }
+
+}
+@media screen and (min-width :500px) {
+    .cart {
+        right: 110px;
+    }
+
+}
+@media screen and (min-width :600px) {
+    .cart {
+        right: 50px;
+    }
+
+}
+@media screen and (min-width :800px) {
+    .cart {
+        right: 120px;
+    }
+
+}
+@media screen and (min-width :1024px) {
+    .cart {
+        right: 50px;
+    }
+
+}
+
+.modal-wrapper {
     position: fixed;
     top: 0;
     right: 0;
@@ -14,8 +53,9 @@
     background-color: rgb(189, 189, 189, 0.9);
 
 
-    
+
 }
+
 .container {
     position: fixed;
     top: 50%;
@@ -27,12 +67,13 @@
 
 }
 
-.modalbtn{
+.modalbtn {
     border: 1px solid rgb(187, 144, 57);
     color: rgb(187, 144, 57);
     transform: scale(0.9);
 }
-.modalbtn:hover{
+
+.modalbtn:hover {
     border: none;
     background-color: rgb(187, 144, 57);
     color: white;
