@@ -33,7 +33,7 @@ export default function Login() {
     return (
         <>
 
-            <div className='bg-gray-300 h-screen flex justify-center items-center mt-10 md:mt-8'>
+            <div className='bg-gray-300 h-screen flex justify-center items-center mt-6 md:mt-8'>
                 <form action="">
                     <div className=' bg-gray-100  py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login w-[90vw] sm:w-[60vw] md:w-[40vw] lg:w-[40vw]'>
                         <h1 className='text-2xl text-center font-medium'>LOGIN</h1>

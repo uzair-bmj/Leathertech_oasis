@@ -60,7 +60,7 @@ export default function Login() {
 
     return (
         <>
-            <div className='bg-gray-300 h-screen flex justify-center items-center  md:mt-8 mt-14'>
+            <div className='bg-gray-300 h-screen flex justify-center items-center  md:mt-8 mt-6'>
                 <form action="" onSubmit={signup}>
                     <div className='bg-gray-100 py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login relative w-[90vw] sm:w-[70vw] md:w-[50vw] lg:w-[40vw]' >
                         <h1 className='text-2xl text-center font-medium'>SIGNUP</h1>
