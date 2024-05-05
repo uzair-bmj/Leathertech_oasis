@@ -24,6 +24,16 @@ export default function MyOrder() {
   }, [verifyuser])
 
 
+    const navigatetohome = () => {
+      nav('/')
+      window.scrollTo({
+          top: 0,
+          behavior: "smooth" 
+        });
+
+  }
+
+
   return (
     <>
       <div className='lg:h-[100vh] px-8 py-8 '>
@@ -52,7 +62,7 @@ export default function MyOrder() {
               }
 
             </div>
-            <div className='px-5 py-5 md:w-[50vw] w-[70vw] lg:w-[30vw] bg-white mt-10 rounded-xl '>
+            <div className='px-5 py-5 md:w-[50vw] w-[90vw] lg:w-[30vw] bg-white mt-10 rounded-xl '>
               <h1 className='price text-center font-bold text-xl '>CUSTOMER DETAIL </h1>
               {orderdetail && orderdetail.map((item, index) => (
                 <div className='customer mt-5' key={item.id || index}>
@@ -68,7 +78,7 @@ export default function MyOrder() {
                   <h1 className='price text-lg font-bold '>${item.totalprice} </h1>
                 </div>
               ))}
-              <button className='px-4 py-2 btn rounded-xl ' onClick={()=>nav("/")}>Home</button>
+              <button className='px-4 py-2 btn rounded-xl ' onClick={navigatetohome}>Home</button>
 
             </div>
           </div>
