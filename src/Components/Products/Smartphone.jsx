@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import Footer from '../Landing Page/Footer'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import "./Products.css"
@@ -8,7 +7,7 @@ import useAuth from '../../Hooks/useAuth'
 export default function Smartphone() {
 
   const [cartmsg, setcartmsg] = useState(false)
-  const { phone, setphone, user, setuser } = useProduct()
+  const { phone, setphone } = useProduct()
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
@@ -37,12 +36,13 @@ export default function Smartphone() {
         } else {
           setexistingitemmodal(true)
         }
-      } else {
-        setloginmodal(true);
       }
     }
+    else {
+      setloginmodal(true);
+    }
   }
-  
+
 
 
 
@@ -115,7 +115,7 @@ export default function Smartphone() {
         }
 
       </div>
-      <Footer />
+
     </>
   )
 }

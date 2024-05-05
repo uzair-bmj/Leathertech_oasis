@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Navbar from '../Landing Page/Navbar'
-import Footer from '../Landing Page/Footer'
 import useProduct from '../../Hooks/useProduct'
 import useAuth from '../../Hooks/useAuth'
 import useCart from '../../Hooks/useCart'
@@ -110,7 +108,7 @@ export default function Leatherjackets() {
           )
         }
       </div>
-      <Footer />
+
     </>
   )
 }

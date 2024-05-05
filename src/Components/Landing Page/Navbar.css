@@ -121,3 +121,12 @@
     transition: all .2s;
     transform: scale(1.1);
 }
+
+.baricon:hover{
+    color: rgb(255, 187, 51);
+    transition: all .5s;
+}
+.moblist:hover{
+    color: rgb(255, 187, 51);
+    transition: all .5s ;
+}

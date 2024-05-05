@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Footer from '../Landing Page/Footer'
 import useCart from '../../Hooks/useCart'
 import "./order.css"
 import { useNavigate } from 'react-router-dom'
@@ -57,7 +56,7 @@ export default function Cart() {
   return (
     <>
       <div className='py-10 '>
-        <div className='w-full px-8 py-4 m-auto mt-9 md:mt-24  relative'>
+        <div className='w-full px-8 py-4 m-auto mt-9 md:mt-20  relative'>
           <img src="https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='w-full h-[60vh] opacity-30 shadow-2xl rounded-xl' alt="" />
           <h1 className='absolute top-[50%] left-[50%] text-3xl md:text-4xl lg:text-6xl font-bold price' style={{ transform: "translate(-50% , -50%)" }}>Products Cart</h1>
         </div>
@@ -104,7 +103,7 @@ export default function Cart() {
                 <>
                   <div className='text-center py-2'>
                     <h1 className='text-xl font-semibold '>Your Cart is empty</h1>
-                    <button className='px-4 py-2 shopbtn rounded-full mt-4'>Go to Shop</button>
+                    <button className='px-4 py-2 shopbtn rounded-full mt-4' onClick={()=> nav('/products')}>Go to Shop</button>
                   </div>
 
                 </>
@@ -112,7 +111,7 @@ export default function Cart() {
           </div>
 
         </div>
-        <div className='flex flex-col justify-center gap-y-2 rounded-lg w-[20vw] float-right mb-10 px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }}>
+        <div className='flex flex-col justify-center gap-y-2 rounded-lg w-[20vw] items-center px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }}>
           <h1 className='text-gray-500 font-bold'>Sub Total : </h1> <span className='text-2xl  font-bold price'>{`$${total}`}</span>
           <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}>Proceed to Place Order</button>
         </div>
@@ -130,7 +129,6 @@ export default function Cart() {
         )
       }
 
-      <Footer />
 
     </>
   )

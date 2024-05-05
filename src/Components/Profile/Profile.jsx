@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../Landing Page/Navbar'
 import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 

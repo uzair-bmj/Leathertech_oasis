@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import useCart from '../../Hooks/useCart'
 import useOrder from "../../Hooks/useOrder"
-import Footer from "../Landing Page/Footer"
 import "./order.css"
+import { useNavigate } from 'react-router-dom'
 
 export default function Order() {
 
   const { cartitems, setcartitems } = useCart()
   const { orderdetail, setorderdetail } = useOrder()
-  const [name, setname] = useState()
-  const [email, setemail] = useState()
-  const [phone, setphone] = useState()
-  const [city, setcity] = useState()
-  const [address, setaddress] = useState()
-  const [zipcode, setzipcode] = useState()
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
+  const [phone, setphone] = useState('')
+  const [city, setcity] = useState('')
+  const [address, setaddress] = useState('')
+  const [zipcode, setzipcode] = useState('')
   const [cartemptymodal, setcartemptymodal] = useState(false)
   const [placeordermodal, setplaceordermodal] = useState(false)
   const [submitorder, setsubmitorder] = useState(false)
   const [total, settotal] = useState(0)
+  const nav = useNavigate()
 
   useEffect(() => {
     if (cartitems.length > 0) {
@@ -33,12 +34,6 @@ export default function Order() {
     if (name && email && phone && city && address && zipcode) {
       if (cartitems.length > 0) {
         setplaceordermodal(true)
-        setname('');
-        setemail('');
-        setphone('');
-        setcity('');
-        setaddress('');
-        setzipcode('');
 
       }
       else {
@@ -51,29 +46,39 @@ export default function Order() {
   }
 
   function placeorder() {
-    const orderobj = {
-      cusname: name,
-      cusemail: email,
-      cusphone: phone,
-      cuscity: city,
-      cusaddress: address,
-      cuszipcode: zipcode,
+    if (cartitems.length > 0) {
+      const orderobj = {
+        cusname: name,
+        cusemail: email,
+        cusphone: phone,
+        cuscity: city,
+        cusaddress: address,
+        cuszipcode: zipcode,
+        totalprice: total,
+        products: cartitems.map(item => ({
+          productimage: item.proimg,
+          productName: item.proname,
+          productprice: item.proprice,
+          productquantity: item.proquantity
+        }))
+      };
+      orderdetail.push(orderobj);
+      console.log("Order Detail:", orderdetail);
+      setname('');
+      setemail('');
+      setphone('');
+      setcity('');
+      setaddress('');
+      setzipcode('');
+      setplaceordermodal(false);
+      setsubmitorder(true);
+      cartitems.splice(0 , cartitems.length)
+    } else {
+      setcartemptymodal(true);
     }
-    orderdetail.push(orderobj)
-    console.log(orderdetail)
-    setname('');
-    setemail('');
-    setphone('');
-    setcity('');
-    setaddress('');
-    setzipcode('');
-    setplaceordermodal(false)
-    setsubmitorder(true)
-    cartitems.pop()
-
-
-
   }
+  
+  
 
 
   return (
@@ -89,12 +94,12 @@ export default function Order() {
                 <h1 className='text-lg font-medium'>Customer Details</h1>
               </div>
               <div className='orderform'>
-                <input type="text" className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Full Name' onChange={(e) => setname(e.target.value)} />
-                <input type="email" className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Email' onChange={(e) => setemail(e.target.value)} />
-                <input type="number" className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Phone Number' onChange={(e) => setphone(e.target.value)} />
-                <input type="text" className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='City' onChange={(e) => setcity(e.target.value)} />
-                <input type="text" className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Address' onChange={(e) => setaddress(e.target.value)} />
-                <input type="number" className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Zipcode' onChange={(e) => setzipcode(e.target.value)} />
+                <input type="text" value={name} className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Full Name' onChange={(e) => setname(e.target.value)} />
+                <input type="email" value={email} className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Email' onChange={(e) => setemail(e.target.value)} />
+                <input type="number" value={phone} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Phone Number' onChange={(e) => setphone(e.target.value)} />
+                <input type="text" value={city} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='City' onChange={(e) => setcity(e.target.value)} />
+                <input type="text" value={address} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Address' onChange={(e) => setaddress(e.target.value)} />
+                <input type="number" value={zipcode} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Zipcode' onChange={(e) => setzipcode(e.target.value)} />
               </div>
               <div className='flex flex-col gap-y-3'>
                 <button className='btn px-4 py-3 rounded-xl w-full ' onClick={ordermsg}>Place Order</button>
@@ -102,7 +107,7 @@ export default function Order() {
                   submitorder && (
                     <>
                       <div style={{ background: "rgba(255, 187, 51, 0.205)" }} className='w-full rounded-xl px-4 py-3'>
-                        <h1>Order Submitted <a href="" className='underline'>Click to see details</a></h1>
+                        <h1>Order Submitted <a href="#" className='underline' onClick={() => nav("/myorder")}>Click to see details</a></h1>
 
                       </div>
                     </>
@@ -162,8 +167,8 @@ export default function Order() {
                 }
               </div>
               <div className='flex flex-col justify-between '>
-              <div className='w-full py-[0.5px] bg-gray-300 mt-3' > 
-              </div>
+                <div className='w-full py-[0.5px] bg-gray-300 mt-3' >
+                </div>
                 <div className='flex justify-between mt-3'>
                   <h1 className='text-sm text-gray-500'>Subtotal :</h1>
                   <h1>{`$${total}`}</h1>
@@ -183,8 +188,6 @@ export default function Order() {
           </div>
         </div>
       </div>
-      <Footer />
-
     </>
   )
 }

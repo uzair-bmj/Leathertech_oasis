@@ -13,13 +13,15 @@ import Service from './Landing Page/Service'
 function Landingpage() {
     return (
         <>
+            <div className='w-full'>
 
-            <Hero />
-            <Categories />
-            <SmartPhones />
-            <Featured />
-            <Service />
-            <Footer />
+                <Hero />
+                <Categories />
+                <SmartPhones />
+                <Featured />
+                <Service />
+
+            </div>
 
         </>
     )

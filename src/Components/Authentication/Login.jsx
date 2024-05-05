@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./login.css"
 import { Link, useNavigate } from 'react-router-dom'
-import Navbar from "../Landing Page/Navbar"
 import useAuth from '../../Hooks/useAuth'
 
 export default function Login() {
@@ -29,7 +28,7 @@ export default function Login() {
 
     return (
         <>
-            <Navbar />
+
             <div className='bg-gray-300 h-screen flex justify-center items-center'>
                 <form action="">
                     <div className=' bg-gray-100  py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[30vw]'>

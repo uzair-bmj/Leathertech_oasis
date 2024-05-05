@@ -12,6 +12,9 @@ import Leatherwallets from './Components/Products/Leatherwallets';
 import Cart from './Components/Order/Cart';
 import Navbar from './Components/Landing Page/Navbar';
 import Order from './Components/Order/Order';
+import MyOrder from './Components/Order/MyOrder';
+import Products from "./Components/Products/Products"
+import Footer from './Components/Landing Page/Footer';
 
 
 function App() {
@@ -32,9 +35,12 @@ function App() {
           <Route path='/watch' element={<SmartWatches />} />
           <Route path='/jacket' element={<Leatherjackets />} />
           <Route path='/wallet' element={<Leatherwallets />} />
+          <Route path='/products' element={<Products />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<Order />} />
+          <Route path='/myorder' element={<MyOrder />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   )
