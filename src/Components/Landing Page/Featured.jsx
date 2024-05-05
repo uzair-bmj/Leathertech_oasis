@@ -43,9 +43,9 @@ export default function Featured() {
 
     return (
         <>
-            <div className='w-[95vw] px-10 py-5 mt-10 bg-gray-100 m-auto rounded-xl'>
-                <h1 className='text-2xl font-bold'>Most Featured</h1>
-                <div className='flex justify-between flex-wrap py-2  gap-y-4 relative'>
+            <div className='w-[90vw] md:w-[95vw] px-10 py-5 mt-10 bg-gray-100 m-auto rounded-xl'>
+                <h1 className='md:text-2xl text-xl md:text-start text-center font-bold'>Most Featured</h1>
+                <div className='flex justify-between items-center flex-wrap py-2  gap-y-4 relative'>
                     {
                         featured.map((items, index) => {
                             return (

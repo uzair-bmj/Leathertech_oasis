@@ -1,4 +1,14 @@
-.footer h1:hover{
+.footer h1:hover {
     color: rgb(255, 187, 51);
     transition: all .3s;
+}
+
+@media screen and (max-width : 900px) {
+    .ft {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px 0;
+    }
 }

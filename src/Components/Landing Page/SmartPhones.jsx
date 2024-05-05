@@ -91,7 +91,7 @@ export default function SmartPhones() {
 
 
     return (
-        <div className='w-[95vw] mt-10 px-10 py-6 bg-gray-100 m-auto rounded-xl'>
+        <div className='md:w-[95vw] w-[90vw] mt-10 px-10 py-6 bg-gray-100 m-auto rounded-xl'>
             <h1 className='text-2xl font-bold mx-4 text-center md:text-start'>Best of Smartphones</h1>
 
             <Slider {...settings}>

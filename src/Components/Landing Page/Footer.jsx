@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <>
       <div className='bg-gray-100 px-8 py-5 mt-10 footer'>
-        <div className='flex justify-evenly'>
+        <div className='flex justify-evenly ft'>
           <div className='w-[300px]'>
             <img src="./leathertechoasis-log.png" alt="" className='w-[300px]' />
           </div>
