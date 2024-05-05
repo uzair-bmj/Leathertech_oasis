@@ -41,6 +41,10 @@ export default function Login() {
                     setprofile(person.Email)
                     console.log(person)
                     setverifyuser(true)
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
 
 
                 } else {
@@ -56,17 +60,17 @@ export default function Login() {
 
     return (
         <>
-            <div className='bg-gray-300 h-screen flex justify-center items-center mt-6'>
+            <div className='bg-gray-300 h-screen flex justify-center items-center  md:mt-8 mt-14'>
                 <form action="" onSubmit={signup}>
-                    <div className='bg-gray-100 py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login relative w-[80vw] sm:w-[70vw] md:w-[50vw] lg:w-[40vw]' >
+                    <div className='bg-gray-100 py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login relative w-[90vw] sm:w-[70vw] md:w-[50vw] lg:w-[40vw]' >
                         <h1 className='text-2xl text-center font-medium'>SIGNUP</h1>
-                        <input type="text" className='py-2 px-4 rounded ]'  placeholder='Full Name' value={fullname} onChange={(e) => setfullname(e.target.value)} />
+                        <input type="text" className='py-2 px-4 rounded ]' placeholder='Full Name' value={fullname} onChange={(e) => setfullname(e.target.value)} />
                         <p className='absolute text-red-700 top-[48%] left-11 text-sm'>{emailauth}</p>
                         <p className='absolute text-blue-700 top-[48%] left-11 text-sm'>{userexist}</p>
-                        <input type="email" className='py-2 px-4 rounded  '  placeholder='Email' value={email} onChange={(e) => setemail(e.target.value)} />
-                        <input type="password" className='py-2 px-4 rounded  '  placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <input type="email" className='py-2 px-4 rounded  ' placeholder='Email' value={email} onChange={(e) => setemail(e.target.value)} />
+                        <input type="password" className='py-2 px-4 rounded  ' placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                         <p className='absolute text-blue-700 top-[64%] text-sm'>{passauth}</p>
-                        <p>Already a user? <Link to="/login"><a href="" className='text-blue-600'>Login</a></Link></p>
+                        <p className='text-sm md:text-md'>Already a user? <Link to="/login"><a href="" className='text-blue-600'>Login</a></Link></p>
                         <input className='px-4 py-2 sbtn rounded-full font-bold cursor-pointer' type='submit' onClick={signup} value="Signup" />
                     </div>
                 </form>
