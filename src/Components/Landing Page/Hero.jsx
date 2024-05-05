@@ -8,6 +8,35 @@ import { useNavigate } from 'react-router-dom';
 export default function SmartPhones() {
 
   const nav = useNavigate()
+  const navigatetophone = () => {
+    nav('/phones')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  const navigatetowatch = () => {
+    nav('/watch')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  const navigatetojacket = () => {
+    nav('/jacket')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  const navigatetowallet = () => {
+    nav('/wallet')
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
 
 
   var settings = {
@@ -29,22 +58,22 @@ export default function SmartPhones() {
         <Slider {...settings}>
           <div className='cursor-pointer '>
             <div className='overflow-hidden '>
-              <img className='w-full sm:h-auto  h-[200px]' src="/ad.jpg" alt=""  onClick={()=>nav("/phones")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/ad.jpg" alt="" onClick={navigatetophone} />
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full sm:h-auto  h-[200px]' src="/adwatch.jpg" alt=""  onClick={()=>nav("/watch")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/adwatch.jpg" alt="" onClick={navigatetowatch} />
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full sm:h-auto  h-[200px]' src="/adjacket.jpg" alt=""  onClick={()=>nav("/jacket")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/adjacket.jpg" alt="" onClick={navigatetojacket} />
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full sm:h-auto  h-[200px]' src="/adwallet.jpg" alt="" onClick={()=>nav("/wallet")} />
+              <img className='w-full sm:h-auto  h-[200px]' src="/adwallet.jpg" alt="" onClick={navigatetowallet} />
             </div>
           </div>
 

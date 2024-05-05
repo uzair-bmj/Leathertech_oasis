@@ -3,6 +3,7 @@ import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
 import "./Products.css"
+import { Link } from 'react-router-dom'
 
 export default function Products() {
 
@@ -56,7 +57,7 @@ export default function Products() {
             proname: jackets[index].Productname,
             proprice: jackets[index].productPrice,
             proquantity: 1,
-            index : index
+            index: index
 
           };
 
@@ -68,7 +69,7 @@ export default function Products() {
           setexistingitemmodal(true)
         }
       }
-      
+
     } else {
       setloginmodal(true)
     }
@@ -116,7 +117,7 @@ export default function Products() {
             proname: wallets[index].Productname,
             proprice: wallets[index].productPrice,
             proquantity: 1,
-            index : index
+            index: index
 
           };
 
@@ -128,7 +129,7 @@ export default function Products() {
           setexistingitemmodal(true)
         }
       }
-      
+
     } else {
       setloginmodal(true)
     }
@@ -137,7 +138,10 @@ export default function Products() {
 
   return (
     <>
-      <div className=' px-10 py-8 flex flex-col justify-center items-center mt-16 gap-y-10'>
+      <div className=' px-10 py-8 flex flex-col justify-center items-center mt-14 md:mt-16 gap-y-10'>
+        <div>
+          <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
+        </div>
         <h1 className='price text-3xl font-bold '>Products</h1>
         <div className='flex flex-col justify-center gap-y-10'>
           <div className='bg-black rounded-xl relative'>

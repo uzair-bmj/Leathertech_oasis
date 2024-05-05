@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
+import { Link } from 'react-router-dom'
 
 export default function Leatherwallets() {
 
@@ -47,12 +48,15 @@ export default function Leatherwallets() {
     <>
 
       <div className='flex flex-col justify-center gap-y-10 px-4 py-4' >
-        <div className='mt-9 md:mt-16 relative bg-black'>
-          <img src="./wallet.jpg " className='rounded-xl opacity-30' alt="" />
-          <h1 className='text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER WALLETS</h1>
+        <div className='mt-14 md:mt-16 relative bg-black rounded-xl'>
+          <img src="./wallet.jpg " className='rounded-xl opacity-30 md:h-auto h-[200px]' alt="" />
+          <h1 className='text-2xl md:text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER WALLETS</h1>
+        </div>
+        <div>
+          <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
         </div>
         <div className='text-center mt-5'>
-          <h1 className='text-gray-500 text-3xl font-bold'>WALLETS -<span className='text-2xl' style={{ color: "rgb(255, 187, 51)" }}> that carry stories.</span></h1>
+          <h1 className='text-gray-500 text-xl md:text-3xl font-bold'>WALLETS -<span className='text-xl md:text-2xl' style={{ color: "rgb(255, 187, 51)" }}> that carry stories.</span></h1>
         </div>
         <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
           {

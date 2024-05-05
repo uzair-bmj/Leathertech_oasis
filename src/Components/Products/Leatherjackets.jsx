@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useAuth from '../../Hooks/useAuth'
 import useCart from '../../Hooks/useCart'
+import { Link } from 'react-router-dom'
 
 export default function Leatherjackets() {
 
@@ -46,12 +47,15 @@ export default function Leatherjackets() {
     <>
 
       <div className=' flex flex-col justify-center gap-y-10 px-8 py-4'>
-        <div className='mt-9 md:mt-16 relative bg-black'>
-          <img src="./jacket.jpg " className='rounded-xl opacity-30' alt="" />
-          <h1 className='text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER JACKETS</h1>
+        <div className='mt-14 md:mt-16 relative bg-black rounded-xl '>
+          <img src="./jacket.jpg " className='rounded-xl opacity-30 md:h-auto h-[200px]' alt="" />
+          <h1 className='text-2xl md:text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER JACKETS</h1>
         </div>
-        <div className='text-center mt-5'>
-          <h1 className='text-gray-500 text-3xl font-bold'>JACKETS -<span className='text-2xl' style={{ color: "rgb(255, 187, 51)" }}>that weather adventures.</span></h1>
+        <div>
+          <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
+        </div>
+        <div className='text-center mt-2'>
+          <h1 className='text-gray-500 text-xl md:text-3xl font-bold'>JACKETS -<span className='text-xl md:text-2xl' style={{ color: "rgb(255, 187, 51)" }}>that weather adventures.</span></h1>
         </div>
         <div className='flex justify-center md:justify-evenly flex-wrap py-4 bg-white rounded-xl'>
 
