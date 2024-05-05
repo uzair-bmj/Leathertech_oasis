@@ -25,26 +25,26 @@ export default function SmartPhones() {
   return (
 
     <>
-      <div className='sm:w-[99vw] w-[957w] m-auto mt-12 sm:mt-14'>
+      <div className='sm:w-[99vw] w-[97vw] m-auto mt-12 sm:mt-14'>
         <Slider {...settings}>
           <div className='cursor-pointer '>
             <div className='overflow-hidden '>
-              <img className='w-full ' src="/ad.jpg" alt=""  onClick={()=>nav("/phones")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/ad.jpg" alt=""  onClick={()=>nav("/phones")}/>
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full ' src="/adwatch.jpg" alt=""  onClick={()=>nav("/watch")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/adwatch.jpg" alt=""  onClick={()=>nav("/watch")}/>
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full ' src="/adjacket.jpg" alt=""  onClick={()=>nav("/jacket")}/>
+              <img className='w-full sm:h-auto  h-[200px]' src="/adjacket.jpg" alt=""  onClick={()=>nav("/jacket")}/>
             </div>
           </div>
           <div className='cursor-pointer'>
             <div className='overflow-hidden'>
-              <img className='w-full ' src="/adwallet.jpg" alt="" onClick={()=>nav("/wallet")} />
+              <img className='w-full sm:h-auto  h-[200px]' src="/adwallet.jpg" alt="" onClick={()=>nav("/wallet")} />
             </div>
           </div>
 
