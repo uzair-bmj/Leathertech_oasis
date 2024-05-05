@@ -73,7 +73,7 @@ export default function Navbar() {
                     )}
                 </div>
             </div>
-            <div className='mob bg-gray-100 px-10 py-3 fixed top-0 left-0 right-0 z-10 w-full'>
+            <div className='mob bg-gray-100 px-3 py-3 fixed top-0 left-0 right-0 z-10 w-[100vw]'>
                 <div className='flex justify-between items-center'>
 
                     <i class="fa-solid fa-bars cursor-pointer baricon" style={{ fontSize: "18px" }} onClick={show}></i>
