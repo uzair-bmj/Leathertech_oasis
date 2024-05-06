@@ -4,6 +4,8 @@ import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
 import "./Products.css"
 import { Link } from 'react-router-dom'
+import Navbar from "../Landing Page/Navbar"
+import Footer from "../Landing Page/Footer"
 
 export default function Products() {
 
@@ -138,6 +140,7 @@ export default function Products() {
 
   return (
     <>
+    <Navbar />
       <div className=' px-10 py-8 flex flex-col justify-center items-center mt-14 md:mt-16 gap-y-10'>
         <div>
           <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
@@ -287,6 +290,7 @@ export default function Products() {
 
 
       </div>
+      <Footer />
 
 
     </>

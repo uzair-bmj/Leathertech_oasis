@@ -9,7 +9,7 @@
     transition: all .5s;
 }
 
-.modal-wrapper{
+.modal-wrapper {
     position: fixed;
     top: 0;
     right: 0;
@@ -17,9 +17,8 @@
     bottom: 0;
     background-color: rgb(189, 189, 189, 0.9);
 
-
-    
 }
+
 .container {
     position: fixed;
     top: 50%;
@@ -31,51 +30,57 @@
 
 }
 
-.modalbtn{
+.modalbtn {
     border: 1px solid rgb(187, 144, 57);
     color: rgb(187, 144, 57);
     transform: scale(0.9);
 }
-.modalbtn:hover{
+
+.modalbtn:hover {
     border: none;
     background-color: rgb(187, 144, 57);
     color: white;
     transition: all .2s;
     transform: scale(1.1);
-}   
+}
 
-.orderform{
+.orderform {
     display: grid;
-    grid-template-columns: repeat(2 ,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     justify-content: center;
     align-items: center;
 
 }
-.orderform input{
+
+.orderform input {
     background-color: rgba(255, 187, 51, 0.205);
 
 
 }
-.btn{
-    background:  rgb(255, 187, 51);
+
+.btn {
+    background: rgb(255, 187, 51);
     cursor: pointer;
     color: white;
-    
+
 }
-.btn:hover{
+
+.btn:hover {
     background-color: rgb(187, 144, 57);
     transform: scale(1.1);
 }
+
 @media screen and (max-width : 600px) {
-    .orderform{
+    .orderform {
         display: grid;
-        grid-template-columns: repeat(1 , 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
-    
+
 }
-.customer{
+
+.customer {
     display: grid;
-    grid-template-columns: repeat(2 , 1fr);
-    
+    grid-template-columns: repeat(2, 1fr);
+
 }

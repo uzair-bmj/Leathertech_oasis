@@ -1,57 +1,82 @@
-import React from 'react'
-import "./landing.css"
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'; // Use useEffect for potential future use
+import "./landing.css";
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import Spinner from '../Spinner';
+import { Authentication } from '../../Context/AuthContext';
 
 export default function Categories() {
+    const { loading, setLoading } = useContext(Authentication);
 
-    const navigatetophone = () => {
-        nav('/phones')
+    const navigate = useNavigate();
+
+    const navigatetophone = async () => {
+        setLoading(true)
+        navigate('/phones');
         window.scrollTo({
             top: 0,
-            behavior: "smooth" 
-          });
-    }
+            behavior: "smooth"
+        });
+
+
+    };
+
     const navigatetowatch = () => {
-        nav('/watch')
+        setLoading(true)
+        navigate('/watch');
         window.scrollTo({
             top: 0,
-            behavior: "smooth" 
-          });
-    }
+            behavior: "smooth"
+        });
+    };
+
     const navigatetojacket = () => {
-        nav('/jacket')
+        setLoading(true)
+        navigate('/jacket');
         window.scrollTo({
             top: 0,
-            behavior: "smooth" 
-          });
-    }
+            behavior: "smooth"
+        });
+    };
+
     const navigatetowallet = () => {
-        nav('/wallet')
+        setLoading(true)
+        navigate('/wallet');
         window.scrollTo({
             top: 0,
-            behavior: "smooth" 
-          });
-    }
+            behavior: "smooth"
+        });
+    };
 
 
-    const nav = useNavigate()
     return (
         <>
-
             <div className='flex justify-center m-auto'>
                 <div className='bg-gray-100 lg:w-[40vw] mt-12 px-4 py-4 rounded-xl '>
                     <h1 className='text-2xl font-bold text-center'>Categories</h1>
-                    <div className='grid grid-cols-2 gap-x-5 mt-4'>  
+                    <div className='grid grid-cols-2 gap-x-5 mt-4'>
                         <div className='py-2' onClick={navigatetophone}>
-                            <div className='flex flex-col items-center'> 
-                                <img src="https://images.pexels.com/photos/9555099/pexels-photo-9555099.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" className='md:w-[100px] md:h-[100px] w-[70px] h-[70px] rounded-full cursor-pointer catimg' />
-                                <p className=' md:text-md lg:text-lg font-medium cursor-pointer text-center'>Smart Phones</p>
+                            <div className='flex flex-col items-center'>
+                                <img
+                                    src="https://images.pexels.com/photos/9555099/pexels-photo-9555099.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt=""
+                                    className='md:w-[100px] md:h-[100px] w-[70px] h-[70px] rounded-full cursor-pointer catimg'
+                                />
+                                <p className='md:text-md lg:text-lg font-medium cursor-pointer text-center'>
+                                    Smart Phones
+                                </p>
                             </div>
                         </div>
                         <div className='py-2' onClick={navigatetowatch}>
                             <div className='flex flex-col items-center'>
-                                <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/a/z/n/46-android-ios-txsmdwwsmwepicslvrblk01-txor-yes-original-imagr2nfgbrvrmva.jpeg?q=70" alt="" className='md:w-[100px] md:h-[100px] w-[70px] h-[70px] rounded-full cursor-pointer catimg' />
-                                <p className=' md:text-md lg:text-lg font-medium cursor-pointer text-center'>Smart Watches</p>
+                                <img
+                                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/a/z/n/46-android-ios-txsmdwwsmwepicslvrblk01-txor-yes-original-imagr2nfgbrvrmva.jpeg?q=70"
+                                    alt=""
+                                    className='md:w-[100px] md:h-[100px] w-[70px] h-[70px] rounded-full cursor-pointer catimg'
+                                />
+                                <p className='md:text-md lg:text-lg font-medium cursor-pointer text-center'>
+                                    Smart Watches
+                                </p>
                             </div>
                         </div>
                         <div className='py-2' onClick={navigatetojacket}>
@@ -66,10 +91,11 @@ export default function Categories() {
                                 <p className=' md:text-md lg:text-lg font-medium cursor-pointer text-center'>leather Wallets</p>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
+
         </>
-    )
+    );
 }

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import "./footer.css";
+import {Authentication} from "../../Context/AuthContext"
 
 export default function Footer() {
+  const { loading, setLoading } = useContext(Authentication);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth" 
+      behavior: "smooth"
     });
   };
 
@@ -22,7 +25,7 @@ export default function Footer() {
             <Link to='/' onClick={scrollToTop}><h1>Home</h1></Link>
             <Link to="/" onClick={scrollToTop}><h1>About</h1></Link>
             <Link to="/products" onClick={scrollToTop}><h1>Products</h1></Link>
-            <Link to="/cart" onClick={scrollToTop}><i className="fa-solid fa-cart-shopping cursor-pointer icon" style={{ fontSize: "20px"}} ></i></Link>
+            <Link to="/cart" onClick={scrollToTop}><i className="fa-solid fa-cart-shopping cursor-pointer icon" style={{ fontSize: "20px" }} ></i></Link>
           </div>
           <div className='flex flex-col justify-center items-center gap-y-5'>
             <h1 className='price text-xl font-medium'>Categories</h1>

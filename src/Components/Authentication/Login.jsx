@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./login.css"
 import { Link, useNavigate } from 'react-router-dom'
 import useAuth from '../../Hooks/useAuth'
+import Navbar from "../Landing Page/Navbar"
+import Footer from "../Landing Page/Footer"
+import { Authentication } from '../../Context/AuthContext'
 
 export default function Login() {
 
     const [loginemail, setloginemail] = useState('');
     const [loginpassword, setloginpassword] = useState('');
     const [error, seterror] = useState(false);
-    const { users, setusers, verifyuser, setverifyuser, profile, setprofile } = useAuth();
+    const { users, setusers, verifyuser, setverifyuser, profile, setprofile, } = useAuth();
+    const { loading, setLoading } = useContext(Authentication);
+
+
     const navigate = useNavigate()
 
     const finduser = users.find((items) => { return items.Email == loginemail && items.pass == loginpassword })
 
-    function login() {
+    function login(e) {
+        e.preventDefault()
+        setLoading(true)
         if (finduser) {
             navigate('/');
             setloginemail('');
@@ -32,6 +40,7 @@ export default function Login() {
 
     return (
         <>
+            <Navbar />
 
             <div className='bg-gray-300 h-screen flex justify-center items-center mt-6 md:mt-8'>
                 <form action="">
@@ -56,6 +65,9 @@ export default function Login() {
                     )
                 }
             </div>
+
+            <Footer />
         </>
+
     )
 }
