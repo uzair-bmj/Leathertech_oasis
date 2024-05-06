@@ -88,7 +88,7 @@ export default function Navbar() {
                     {verifyuser ? (
                         <div className='flex justify-between w-[20vw] sm:w-[10vw]'>
                             <i className="fa-regular fa-user cursor-pointer icon" style={{ fontSize: "18px" }} onClick={() => nav('/profile')}></i>
-                            <i className="fa-solid fa-cart-shopping cursor-pointer icon" style={{ fontSize: "18px" }} onClick={{navigatetocart }}></i>
+                            <i className="fa-solid fa-cart-shopping cursor-pointer icon" style={{ fontSize: "18px" }} onClick={navigatetocart }></i>
                             <i className="fa-solid fa-right-from-bracket cursor-pointer icon" style={{ fontSize: "18px" }} onClick={logout}></i>
                         </div>
                     ) : (

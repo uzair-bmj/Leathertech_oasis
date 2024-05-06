@@ -49,7 +49,7 @@ export default function Cart() {
     newcart.splice(index, 1)
     setcartitems(newcart)
   }
-  function navtoproducts(){
+  function navtoproducts() {
     setLoading(true)
     nav("/products")
   }
@@ -63,6 +63,12 @@ export default function Cart() {
     }
   }
 
+  function navtohome() {
+    setLoading(true)
+    nav('/')
+  }
+
+
   return (
 
     <>
@@ -70,7 +76,7 @@ export default function Cart() {
       {loading ? <Spinner /> : (
         <>
           <Navbar />
-          <div className='py-10 '>
+          <div className='py-10 descart'>
             <div className='w-full px-8 py-4 m-auto mt-9 md:mt-20  relative'>
               <img src="https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='w-full h-[60vh] opacity-30 shadow-2xl rounded-xl' alt="" />
               <h1 className='absolute top-[50%] left-[50%] text-3xl md:text-4xl lg:text-6xl font-bold price' style={{ transform: "translate(-50% , -50%)" }}>Products Cart</h1>
@@ -143,6 +149,36 @@ export default function Cart() {
               </>
             )
           }
+          <div className='mobcart py-10 px-8 flex flex-col justify-between mt-10'>
+            <div className='flex gap-x-4'>
+              <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
+              <h1 className='price font-bold text-lg'>My Cart</h1>
+            </div>
+            <div className='flex justify-between flex-col'>
+              {
+                cartitems && cartitems.length > 0 ? (
+                  <>
+
+
+                  </>
+                ) : (
+                  <>
+                    <div className='flex flex-col justify-center items-center gap-y-4 h-[100vh] '>
+                      <h1 className='text-xl'>Cart is empty</h1>
+                      <button className='px-4 py-2 btn rounded-xl '>Shop Now</button>
+                    </div>
+
+
+                  </>
+                )
+
+              }
+
+            </div>
+
+
+
+          </div>
           <Footer />
         </>
       )}

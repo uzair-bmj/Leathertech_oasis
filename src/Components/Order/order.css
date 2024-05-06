@@ -84,3 +84,19 @@
     grid-template-columns: repeat(2, 1fr);
 
 }
+.descart{
+    display: block;
+}
+.mobcart{
+    display: none;
+}
+
+@media screen and (max-width : 600px) {
+    .descart{
+        display: none;
+    }
+    .mobcart{
+        display: block;
+    }
+    
+}
