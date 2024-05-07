@@ -7,6 +7,7 @@ export default function Footer() {
   const { loading, setLoading } = useContext(Authentication);
 
   const scrollToTop = () => {
+    setLoading(true)
     window.scrollTo({
       top: 0,
       behavior: "smooth"

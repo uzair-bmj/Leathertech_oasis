@@ -87,7 +87,7 @@
 .descart{
     display: block;
 }
-.mobcart{
+.mobilecart{
     display: none;
 }
 
@@ -95,8 +95,16 @@
     .descart{
         display: none;
     }
-    .mobcart{
+    .mobilecart{
         display: block;
     }
+    
+}
+
+.orderinfo{
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    justify-content: space-between;
+    width: 100vw;
     
 }

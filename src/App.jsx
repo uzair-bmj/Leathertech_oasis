@@ -15,6 +15,7 @@ import MyOrder from './Components/Order/MyOrder';
 import Products from "./Components/Products/Products"
 import { Authentication } from './Context/AuthContext';
 import Spinner from './Components/Spinner';
+import Productdetail from './Components/Products/Productdetail';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
               <Route path='/jacket' element={<Leatherjackets />} />
               <Route path='/wallet' element={<Leatherwallets />} />
               <Route path='/products' element={<Products />} />
+              <Route path='/prodetail' element={<Productdetail />} />
               <Route path='/cart' element={<Cart />} />
               <Route path='/order' element={<Order />} />
               <Route path='/myorder' element={<MyOrder />} />

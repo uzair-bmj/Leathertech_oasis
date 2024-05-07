@@ -149,35 +149,67 @@ export default function Cart() {
               </>
             )
           }
-          <div className='mobcart py-10 px-8 flex flex-col justify-between mt-10'>
-            <div className='flex gap-x-4'>
-              <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
-              <h1 className='price font-bold text-lg'>My Cart</h1>
+          <div className='mobilecart w-[100vw]'>
+            <div className=' py-10 px-8 flex flex-col justify-center mt-10 '>
+              <div className='flex gap-x-4'>
+                <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
+                <h1 className='price font-bold text-lg'>My Cart</h1>
+              </div>
+              <div className='flex justify-between flex-col mt-8 gap-y-4 '>
+                {
+                  cartitems && cartitems.length > 0 ? (
+                    cartitems.map((items, index) => (
+                      <>
+                        <div key={index} className='flex justify-between relative'>
+                          <div className='shadow-lg'>
+                            <img src={items.proimg} alt="" className='h-24 w-24 rounded-lg shadow-lg' />
+                          </div>
+                          <div className='flex flex-col justify-between absolute left-28 h-24'>
+                            <h1 className='text-lg font-medium '>{items.proname}</h1>
+                            <h1 className='text-md'>${items.proprice}</h1>
+                            <div className='flex gap-x-5'>
+                              <button className='text-lg' onClick={() => decreament(index)}>-</button>
+                              <h1>{items.proquantity || 1}</h1>
+                              <button className='text-lg' onClick={() => increament(index)}>+</button>
+                            </div>
+                          </div>
+                          <div className='relative'>
+                            <i class="fa-solid fa-trash  cursor-pointer absolute bottom-3" style={{ fontSize: "20px", color: "red" }} onClick={() => removefromcart(index)}></i>
+                          </div>
+                        </div>
+                      </>
+                    ))
+
+                  ) : (
+                    <>
+                      <div className='flex flex-col justify-center items-center gap-y-4  py-20'>
+                        <h1 className='text-xl'>Cart is empty</h1>
+                        <button className='px-4 py-2 btn rounded-xl ' onClick={navtohome}>Shop Now</button>
+                      </div>
+
+
+                    </>
+                  )
+
+                }
+
+              </div>
+              {/* order info */}
+              <div className='mt-8 '>
+                <h1>Order info</h1>
+                <div className='orderinfo gap-y-1 mt-2'>
+                  <h1 className='text-sm text-gray-700'>Subtotal</h1>
+                  <h1 className='text-sm text-gray-700'>{`$${total}`}</h1>
+                  <h1 className='text-sm text-gray-700'>Shipping Cost</h1>
+                  <h1  className='text-sm text-gray-700'>Subtotal</h1>
+                  <h1 className='text-md '>Total</h1>
+                  <h1 className='text-md'>{`$${total}`}</h1>
+                </div>
+                <button className='px-4 py-2 mt-4 btn rounded-xl w-full' onClick={proceedtoorder}>Checkout</button>
+              </div>
+
+
             </div>
-            <div className='flex justify-between flex-col'>
-              {
-                cartitems && cartitems.length > 0 ? (
-                  <>
-
-
-                  </>
-                ) : (
-                  <>
-                    <div className='flex flex-col justify-center items-center gap-y-4 h-[100vh] '>
-                      <h1 className='text-xl'>Cart is empty</h1>
-                      <button className='px-4 py-2 btn rounded-xl '>Shop Now</button>
-                    </div>
-
-
-                  </>
-                )
-
-              }
-
-            </div>
-
-
-
           </div>
           <Footer />
         </>
