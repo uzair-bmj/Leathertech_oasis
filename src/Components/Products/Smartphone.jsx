@@ -3,7 +3,7 @@ import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import "./Products.css"
 import useAuth from '../../Hooks/useAuth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import Spinner from "../Spinner"
@@ -13,16 +13,34 @@ import { Authentication } from '../../Context/AuthContext'
 export default function Smartphone() {
 
   const [cartmsg, setcartmsg] = useState(false)
-  const { phone, setphone } = useProduct()
+  const { phone, setphone , prodetail , setprodetail } = useProduct()
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication)
+  const nav = useNavigate()
 
 
+  function pushtoprodetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: phone[index].imgurl,
+      prodname: phone[index].Productname,
+      prodprice: phone[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-
+  }
+  
 
 
   function pushtocart(index) {
@@ -76,7 +94,7 @@ export default function Smartphone() {
 
               {
                 phone && phone.map((items, index) => (
-                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index}>
+                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index} onClick={()=>pushtoprodetail(index)}>
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='w-full h-60 overflow-hidden'>
                         <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />

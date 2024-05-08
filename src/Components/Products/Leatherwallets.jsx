@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
@@ -11,13 +11,34 @@ import Spinner from "../Spinner"
 
 export default function Leatherwallets() {
 
-  const { wallets } = useProduct()
   const [cartmsg, setcartmsg] = useState(false)
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication)
+  const { wallets, prodetail, setprodetail } = useProduct()
+  const nav = useNavigate()
+
+
+  function pushtoprodetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: wallets[index].imgurl,
+      prodname: wallets[index].Productname,
+      prodprice: wallets[index].productPrice,
+    };
+
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
 
 
 
@@ -71,7 +92,7 @@ export default function Leatherwallets() {
             <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
               {
                 wallets && wallets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=> pushtoprodetail(index)}>
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='h-64 w-full overflow-hidden'>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />

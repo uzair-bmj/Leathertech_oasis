@@ -150,12 +150,12 @@ export default function Cart() {
             )
           }
           <div className='mobilecart w-[100vw]'>
-            <div className=' py-10 px-8 flex flex-col justify-center mt-10 '>
+            <div className=' py-8 px-8 flex flex-col justify-between h-screen '>
               <div className='flex gap-x-4'>
                 <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
                 <h1 className='price font-bold text-lg'>My Cart</h1>
               </div>
-              <div className='flex justify-between flex-col mt-8 gap-y-4 '>
+              <div className='flex justify-between flex-col mt-8 gap-y-4 overflow-y-auto overflow-x-hidden mobcart'>
                 {
                   cartitems && cartitems.length > 0 ? (
                     cartitems.map((items, index) => (
@@ -174,7 +174,7 @@ export default function Cart() {
                             </div>
                           </div>
                           <div className='relative'>
-                            <i class="fa-solid fa-trash  cursor-pointer absolute bottom-3" style={{ fontSize: "20px", color: "red" }} onClick={() => removefromcart(index)}></i>
+                            <i class="fa-solid fa-trash  cursor-pointer absolute bottom-3 right-3" style={{ fontSize: "20px", color: "red" }} onClick={() => removefromcart(index)}></i>
                           </div>
                         </div>
                       </>
@@ -184,7 +184,7 @@ export default function Cart() {
                     <>
                       <div className='flex flex-col justify-center items-center gap-y-4  py-20'>
                         <h1 className='text-xl'>Cart is empty</h1>
-                        <button className='px-4 py-2 btn rounded-xl ' onClick={navtohome}>Shop Now</button>
+                        <button className='px-4 py-2 btn rounded-xl ' onClick={navtoproducts}>Shop Now</button>
                       </div>
 
 

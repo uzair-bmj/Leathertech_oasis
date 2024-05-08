@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Smartphone.css"
 import useCart from "../../Hooks/useCart"
 import useAuth from '../../Hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
+import useProduct from "../../Hooks/useProduct"
+import { Authentication } from '../../Context/AuthContext';
+
 
 export default function SmartPhones() {
 
@@ -13,7 +17,29 @@ export default function SmartPhones() {
     const { verifyuser } = useAuth()
     const [loginmodal, setloginmodal] = useState(false)
     const [existingitemmodal, setexistingitemmodal] = useState(false)
+    const { prodetail, setprodetail } = useProduct()
+    const { loading, setLoading } = useContext(Authentication)
+    const nav = useNavigate()
 
+
+    function pushtoprodetail(index) {
+        console.clear()
+        const proobj = {
+            prodimg: phoneData[index].imgurl,
+            prodname: phoneData[index].Productname,
+            prodprice: phoneData[index].productPrice,
+        };
+
+        setprodetail([proobj]);
+        console.log(prodetail);
+        nav('/prodetail');
+        setLoading(true)
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
 
 
     var settings = {
@@ -96,7 +122,7 @@ export default function SmartPhones() {
 
             <Slider {...settings}>
                 {phoneData.map((items, index) => (
-                    <div key={index} className='flex justify-between min-w-48 px-4 py-4 cursor-pointer relative'>
+                    <div key={index} className='flex justify-between min-w-48 px-4 py-4 cursor-pointer relative' onClick={() => pushtoprodetail(index)}>
                         <div className='w-[16rem] mx-auto bg-white rounded-xl shadow-lg card'>
                             <div className='h-64 overflow-hidden'>
                                 <img className='w-full rounded-xl' src={items.imgurl} alt={items.Productname} />

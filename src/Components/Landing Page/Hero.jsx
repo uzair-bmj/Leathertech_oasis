@@ -54,7 +54,7 @@ export default function SmartPhones() {
   return (
 
     <>
-      <div className='sm:w-[99vw] w-[97vw] m-auto mt-12 sm:mt-14'>
+      <div className='sm:w-[99vw] w-[99vw] m-auto mt-0 sm:mt-14'>
         <Slider {...settings}>
           <div className='cursor-pointer '>
             <div className='overflow-hidden '>

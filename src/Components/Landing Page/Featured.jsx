@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
+import useProduct from "../../Hooks/useProduct"
+import { Authentication } from '../../Context/AuthContext'
 
 export default function Featured() {
 
@@ -9,6 +12,29 @@ export default function Featured() {
     const { verifyuser } = useAuth()
     const [loginmodal, setloginmodal] = useState(false)
     const [existingitemmodal, setexistingitemmodal] = useState(false)
+    const { prodetail, setprodetail } = useProduct()
+    const { loading, setLoading } = useContext(Authentication)
+    const nav = useNavigate()
+
+
+    function pushtoprodetail(index) {
+        console.clear()
+        const proobj = {
+            prodimg: featured[index].imgurl,
+            prodname: featured[index].Productname,
+            prodprice: featured[index].productPrice,
+        };
+
+        setprodetail([proobj]);
+        console.log(prodetail);
+        nav('/prodetail');
+        setLoading(true)
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
 
 
 
@@ -49,7 +75,7 @@ export default function Featured() {
                     {
                         featured.map((items, index) => {
                             return (
-                                <div className=' shadow-lg rounded-xl cursor-pointer card relative' key={index}>
+                                <div className=' shadow-lg rounded-xl cursor-pointer card relative' key={index} onClick={() => pushtoprodetail(index)}>
                                     <div className='w-[16rem] '>
                                         <div className='h-64 overflow-hidden'>
                                             <img src={items.imgurl} alt={items.Productname} className='w-full rounded-xl overflow-hidden' />

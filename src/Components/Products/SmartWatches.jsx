@@ -3,7 +3,7 @@ import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import "./Products.css"
 import useAuth from '../../Hooks/useAuth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import Spinner from "../Spinner"
@@ -18,10 +18,29 @@ export default function SmartWatches() {
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication)
+  const { watches , prodetail ,setprodetail  } = useProduct()
+  const nav = useNavigate()
 
 
+  function pushtoprodetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: watches[index].imgurl,
+      prodname: watches[index].Productname,
+      prodprice: watches[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-  const { watches } = useProduct()
+  }
+
 
   const pushtocart = (index) => {
     if (verifyuser) {
@@ -74,7 +93,7 @@ export default function SmartWatches() {
 
               {
                 watches && watches.map((items, index) => (
-                  <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index}>
+                  <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' onClick={()=>pushtoprodetail(index)} key={index}>
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='h-64 w-full overflow-hidden'>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />

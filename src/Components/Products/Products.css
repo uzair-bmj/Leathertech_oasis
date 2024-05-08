@@ -36,3 +36,9 @@
     transform: translate(-50%,-50%);
     color: rgb(255, 187, 51);
 }
+
+.detailimg:hover{
+
+    transform: scale(1.1);
+    transition: all .5s;
+}

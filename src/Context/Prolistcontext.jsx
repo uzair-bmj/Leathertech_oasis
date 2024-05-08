@@ -253,14 +253,14 @@ const Prolistcontext = ({ children }) => {
             },
             
         ])
-
+    const [prodetail , setprodetail ] = useState([])
 
 
 
 
     return (
         <>
-            <Productlist.Provider value={{ phone, setphone, watches, setwatches, jackets, setjackets , wallets , setwallets }}>
+            <Productlist.Provider value={{ phone, setphone, watches, setwatches, jackets, setjackets , wallets , setwallets , prodetail , setprodetail }}>
                 {children}
             </Productlist.Provider>
 

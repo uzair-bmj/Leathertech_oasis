@@ -108,3 +108,13 @@
     width: 100vw;
     
 }
+.mobcart::-webkit-scrollbar-thumb{
+    background: none;
+    border: none;
+
+}
+.mobcart::-webkit-scrollbar-track{
+    background: none;
+    border: none;
+
+}

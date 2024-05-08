@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useAuth from '../../Hooks/useAuth'
 import useCart from '../../Hooks/useCart'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
@@ -10,13 +10,34 @@ import Spinner from "../Spinner"
 
 export default function Leatherjackets() {
 
-  const { jackets } = useProduct()
   const [cartmsg, setcartmsg] = useState(false)
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication)
+  const { jackets , prodetail ,setprodetail  } = useProduct()
+  const nav = useNavigate()
+
+
+  function pushtoprodetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: jackets[index].imgurl,
+      prodname: jackets[index].Productname,
+      prodprice: jackets[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
 
 
   function pushtocart(index) {
@@ -48,6 +69,9 @@ export default function Leatherjackets() {
       setloginmodal(true)
     }
   }
+
+
+
   return (
     <>
       {loading ? <Spinner /> : (
@@ -69,7 +93,7 @@ export default function Leatherjackets() {
 
               {
                 jackets && jackets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=> pushtoprodetail(index)}>
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='h-64 w-full overflow-hidden'>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />

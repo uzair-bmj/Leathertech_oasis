@@ -3,7 +3,7 @@ import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
 import "./Products.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 
@@ -18,6 +18,82 @@ export default function Products() {
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const [cartmsg, setcartmsg] = useState(false)
+  const {prodetail ,setprodetail  } = useProduct()
+  const nav = useNavigate()
+
+
+  function pushtophonedetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: phone[index].imgurl,
+      prodname: phone[index].Productname,
+      prodprice: phone[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+  function pushtowatchdetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: watches[index].imgurl,
+      prodname: watches[index].Productname,
+      prodprice: watches[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+  function pushtojacketdetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: jackets[index].imgurl,
+      prodname: jackets[index].Productname,
+      prodprice: jackets[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+  function pushtowalletdetail(index) {
+    console.clear()
+    const proobj = {
+      prodimg: wallets[index].imgurl,
+      prodname: wallets[index].Productname,
+      prodprice: wallets[index].productPrice,
+    };
+  
+    setprodetail([proobj]);
+    console.log(prodetail);
+    nav('/prodetail');
+    setLoading(true)
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
 
 
   function phonetocart(index) {
@@ -155,7 +231,7 @@ export default function Products() {
 
             {
               phone && phone.map((items, index) => (
-                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index}>
+                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index} onClick={()=>pushtophonedetail(index)}>
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='w-full h-60 overflow-hidden'>
                       <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -181,7 +257,7 @@ export default function Products() {
           <div className='flex justify-center md:justify-between gap-y-5 flex-wrap px-4 py-4 mt-5 bg-white rounded-xl'>
             {
               watches && watches.map((items, index) => (
-                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index}>
+                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtowatchdetail(index)}>
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden'>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -209,7 +285,7 @@ export default function Products() {
 
             {
               jackets && jackets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtojacketdetail(index)}>
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden'>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -235,7 +311,7 @@ export default function Products() {
           <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
             {
               wallets && wallets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtowalletdetail(index)}>
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden'>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
