@@ -58,14 +58,8 @@
   left: 0;
   width: 100%;
   z-index: 999;
-  /* Adjust as needed */
-  /* Other styles */
 }
 
-hr {
-  background-color: gray;
-  margin-top: 10px;
-}
 .cart{
   color: rgb(102, 100, 100);
 }

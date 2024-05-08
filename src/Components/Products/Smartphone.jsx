@@ -94,7 +94,7 @@ export default function Smartphone() {
 
               {
                 phone && phone.map((items, index) => (
-                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index} onClick={()=>pushtoprodetail(index)}>
+                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative z-0' key={index} onClick={()=>pushtoprodetail(index)}>
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='w-full h-60 overflow-hidden'>
                         <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -103,7 +103,7 @@ export default function Smartphone() {
                         <div className='font-bold text-lg mb-2'>{items.Productname}</div>
                         <p className='text-gray-700 text-base'>Price: ${items.productPrice}</p>
                         <p className='text-gray-700 text-base underline cursor-pointer'>{items.reviews} reviews</p>
-                        <i class="fa-solid fa-cart-shopping absolute right-8 top-[88%] cart" style={{ fontSize: "18px" }} onClick={() => pushtocart(index)}></i>
+                        <i class="fa-solid fa-cart-shopping absolute right-8 top-[88%] cart z-10" style={{ fontSize: "18px" }} onClick={() => pushtocart(index)}></i>
 
                       </div>
                     </div>

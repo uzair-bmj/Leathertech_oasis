@@ -90,7 +90,7 @@ export default function Productdetail() {
                                         </div>
                                         <img src={items.prodimg} alt="" className='w-[150px] h-[150px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} />
                                     </div>
-                                    <div className='flex justify-between flex-col py-5 px-5 gap-y-8'>
+                                    <div className='flex justify-between flex-col py-5 px-5 gap-y-10'>
                                     <div className='flex flex-col gap-y-2'>
                                         <h1 className='text-2xl font-bold '>{items.prodname}</h1>
                                         <h2 className='text-lg '>${items.prodprice}</h2>
