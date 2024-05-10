@@ -92,9 +92,9 @@ export default function Leatherwallets() {
             <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
               {
                 wallets && wallets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=> pushtoprodetail(index)}>
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} >
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
-                      <div className='h-64 w-full overflow-hidden'>
+                      <div className='h-64 w-full overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                       </div>
                       <div className='px-6 py-4'>

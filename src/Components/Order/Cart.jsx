@@ -93,8 +93,6 @@ export default function Cart() {
                   <h1 className='price text-md sm:text-lg md:text-xl font-bold  '> {`$${total}`}</h1>
                 </div>
               </div>
-
-
               <div className='md:px-4 px-2 lg:px-8 py-3 flex flex-col justify-center gap-y-5 w-[90vw] md:w-[80vw] mt-5 rounded-lg text-center' style={{ border: "2px solid rgb(255, 187, 51)" }}>
                 {
                   cartitems && cartitems.length > 0 ? (
@@ -132,7 +130,7 @@ export default function Cart() {
               </div>
               <div className='flex flex-col justify-center gap-y-2 rounded-lg md:w-[30vw] lg:w-[30vw] sm:w-[50vw] w-[80vw] items-center px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }}>
                 <h1 className='text-gray-500 font-bold'>Sub Total : </h1> <span className='text-2xl  font-bold price'>{`$${total}`}</span>
-                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}>Proceed to Place Order</button>
+                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}>Proceed to Checkout</button>
               </div>
             </div>
 
@@ -150,50 +148,51 @@ export default function Cart() {
             )
           }
           <div className='mobilecart w-[100vw]'>
-            <div className=' py-8 px-8 flex flex-col justify-between h-screen '>
+            <div className=' py-8 px-8 flex flex-col justify-between h-screen relative'>
               <div className='flex gap-x-4'>
                 <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
                 <h1 className='price font-bold text-lg'>My Cart</h1>
               </div>
-              <div className='flex justify-between flex-col mt-8 gap-y-4 overflow-y-auto overflow-x-hidden mobcart'>
-                {
-                  cartitems && cartitems.length > 0 ? (
-                    cartitems.map((items, index) => (
-                      <>
-                        <div key={index} className='flex justify-between relative'>
-                          <div className='shadow-lg'>
-                            <img src={items.proimg} alt="" className='h-24 w-24 rounded-lg shadow-lg' />
-                          </div>
-                          <div className='flex flex-col justify-between absolute left-28 h-24'>
-                            <h1 className='text-lg font-medium '>{items.proname}</h1>
-                            <h1 className='text-md'>${items.proprice}</h1>
-                            <div className='flex gap-x-5'>
-                              <button className='text-lg' onClick={() => decreament(index)}>-</button>
-                              <h1>{items.proquantity || 1}</h1>
-                              <button className='text-lg' onClick={() => increament(index)}>+</button>
+
+                <div className='flex justify-between flex-col mt-8 gap-y-4  overflow-y-auto overflow-x-hidden mobcart'>
+                  {
+                    cartitems && cartitems.length > 0 ? (
+                      cartitems.map((items, index) => (
+                        <>
+                          <div key={index} className='flex justify-between relative '>
+                            <div className='shadow-lg'>
+                              <img src={items.proimg} alt="" className='h-24 w-24 rounded-lg shadow-lg' />
+                            </div>
+                            <div className='flex flex-col justify-between absolute left-28 h-24'>
+                              <h1 className='text-md font-medium '>{items.proname}</h1>
+                              <h1 className='text-sm'>${items.proprice}</h1>
+                              <div className='flex gap-x-5'>
+                                <button className='text-lg' onClick={() => decreament(index)}>-</button>
+                                <h1>{items.proquantity || 1}</h1>
+                                <button className='text-lg' onClick={() => increament(index)}>+</button>
+                              </div>
+                            </div>
+                            <div className='relative'>
+                              <i class="fa-solid fa-trash  cursor-pointer absolute bottom-3 right-3" style={{ fontSize: "18px", color: "red" }} onClick={() => removefromcart(index)}></i>
                             </div>
                           </div>
-                          <div className='relative'>
-                            <i class="fa-solid fa-trash  cursor-pointer absolute bottom-3 right-3" style={{ fontSize: "20px", color: "red" }} onClick={() => removefromcart(index)}></i>
-                          </div>
+                        </>
+                      ))
+
+                    ) : (
+                      <>
+                        <div className='flex flex-col justify-center items-center gap-y-4  py-20'>
+                          <h1 className='text-xl'>Cart is empty</h1>
+                          <button className='px-4 py-2 btn rounded-xl ' onClick={navtoproducts}>Shop Now</button>
                         </div>
+
+
                       </>
-                    ))
+                    )
 
-                  ) : (
-                    <>
-                      <div className='flex flex-col justify-center items-center gap-y-4  py-20'>
-                        <h1 className='text-xl'>Cart is empty</h1>
-                        <button className='px-4 py-2 btn rounded-xl ' onClick={navtoproducts}>Shop Now</button>
-                      </div>
+                  }
 
-
-                    </>
-                  )
-
-                }
-
-              </div>
+                </div>
               {/* order info */}
               <div className='mt-8 '>
                 <h1>Order info</h1>
@@ -201,7 +200,7 @@ export default function Cart() {
                   <h1 className='text-sm text-gray-700'>Subtotal</h1>
                   <h1 className='text-sm text-gray-700'>{`$${total}`}</h1>
                   <h1 className='text-sm text-gray-700'>Shipping Cost</h1>
-                  <h1  className='text-sm text-gray-700'>Subtotal</h1>
+                  <h1 className='text-sm text-gray-700'>Subtotal</h1>
                   <h1 className='text-md '>Total</h1>
                   <h1 className='text-md'>{`$${total}`}</h1>
                 </div>

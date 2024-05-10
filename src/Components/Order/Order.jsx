@@ -98,7 +98,7 @@ export default function Order() {
           <div className=' mt-16 bg-gray-300'>
             <div className='text-center flex justify-center px-10 py-5 items-center flex-col '>
               <div className='mt-12'>
-                <h1 className='price text-2xl font-bold'>ORDER DETAILS</h1>
+                <h1 className='price text-2xl font-bold'>CHECKOUT</h1>
               </div>
               <div className='flex justify-between flex-wrap gap-x-5 lg:gap-y-5 '>
                 <div className='flex flex-col justify-center lg:h-[400px] gap-y-8 bg-white mt-10 w-[90vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] rounded-xl px-6 py-5'>
@@ -106,7 +106,7 @@ export default function Order() {
                     <h1 className='text-lg font-medium'>Customer Details</h1>
                   </div>
                   <div className='orderform'>
-                    <input type="text" value={name} className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Full Name' onChange={(e) => setname(e.target.value)} />
+                    <input type="text" value={name} className='rounded-lg px-3  py-2 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Full Name' onChange={(e) => setname(e.target.value)} />
                     <input type="email" value={email} className='rounded-lg px-2  py-1 md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Email' onChange={(e) => setemail(e.target.value)} />
                     <input type="number" value={phone} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='Phone Number' onChange={(e) => setphone(e.target.value)} />
                     <input type="text" value={city} className='rounded-lg px-2 py-1  md:px-4 md:py-2  lg:px-6 lg:py-2 bg-gray-200 ' placeholder='City' onChange={(e) => setcity(e.target.value)} />

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
+import { Link, useNavigate } from 'react-router-dom'
+import { Authentication } from '../../Context/AuthContext'
 
 
 export default function Productdetail() {
@@ -14,6 +16,8 @@ export default function Productdetail() {
     const [loginmodal, setloginmodal] = useState(false)
     const [existingitemmodal, setexistingitemmodal] = useState(false)
     const [cartmsg, setcartmsg] = useState(false)
+    const { loading, setLoading } = useContext(Authentication)
+    const nav = useNavigate()
 
 
     function pushtocart() {
@@ -44,14 +48,21 @@ export default function Productdetail() {
     }
 
 
-
+    function navtohome() {
+        setLoading(true)
+        nav('/')
+    }
 
 
     return (
         <>
             <Navbar />
-            <div className=' h-screen'>
+            <div className=''>
+
                 <div className='md:block hidden '>
+                    <div className='absolute top-20 left-16'>
+                        <h2 className='price text-lg '>Back to <Link to="/">home</Link></h2>
+                    </div>
                     {
                         prodetail && prodetail.map((items, index) => (
                             <div key={index} className='flex justify-center px-8 py-32 gap-x-20 md:w-[90vw]  lg:w-[70vw] m-auto'>
@@ -79,6 +90,7 @@ export default function Productdetail() {
 
                 </div>
                 <div className='md:hidden block'>
+
                     {
                         prodetail && prodetail.map((items, index) => (
                             <>
@@ -88,19 +100,20 @@ export default function Productdetail() {
                                             <img src={items.prodimg} alt="" className=' w-[150px] h-[200px] opacity-30 rounded-xl shadow-xl detailimg' />
                                             <img src={items.prodimg} alt="" className=' w-[150px] h-[200px] opacity-30 rounded-xl shadow-xl detailimg' />
                                         </div>
+                                        <i class="fa-solid fa-arrow-left absolute top-2 left-4 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
                                         <img src={items.prodimg} alt="" className='w-[150px] h-[150px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} />
                                     </div>
                                     <div className='flex justify-between flex-col py-5 px-5 gap-y-10'>
-                                    <div className='flex flex-col gap-y-2'>
-                                        <h1 className='text-2xl font-bold '>{items.prodname}</h1>
-                                        <h2 className='text-lg '>${items.prodprice}</h2>
-                                        <p className='text-sm text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores ipsum exercitationem in facilisnobis doloribus laborum  magnam consequatur vel?</p>
+                                        <div className='flex flex-col gap-y-2'>
+                                            <h1 className='text-2xl font-bold '>{items.prodname}</h1>
+                                            <h2 className='text-lg '>${items.prodprice}</h2>
+                                            <p className='text-sm text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores ipsum exercitationem in facilisnobis doloribus laborum  magnam consequatur vel?</p>
+                                        </div>
+                                        <div className='flex flex-col gap-y-4'>
+                                            <button className='w-full btn px-4 py-2 rounded-xl' onClick={pushtocart}>Add to cart</button>
+                                            <button className='w-full btn px-4 py-2 rounded-xl'>Add to wishlist</button>
+                                        </div>
                                     </div>
-                                    <div className='flex flex-col gap-y-4'>
-                                        <button className='w-full btn px-4 py-2 rounded-xl' onClick={pushtocart}>Add to cart</button>
-                                        <button className='w-full btn px-4 py-2 rounded-xl'>Add to wishlist</button>
-                                    </div>
-                                </div>
 
                                 </div>
                             </>

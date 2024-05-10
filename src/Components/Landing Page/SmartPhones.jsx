@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -8,6 +8,9 @@ import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useProduct from "../../Hooks/useProduct"
 import { Authentication } from '../../Context/AuthContext';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 
 
 export default function SmartPhones() {
@@ -20,6 +23,9 @@ export default function SmartPhones() {
     const { prodetail, setprodetail } = useProduct()
     const { loading, setLoading } = useContext(Authentication)
     const nav = useNavigate()
+    useEffect(() => {
+        Aos.init({ duration: 1000 })
+    }, []);
 
 
     function pushtoprodetail(index) {
@@ -122,9 +128,9 @@ export default function SmartPhones() {
 
             <Slider {...settings}>
                 {phoneData.map((items, index) => (
-                    <div key={index} className='flex justify-between min-w-48 px-4 py-4 cursor-pointer relative' onClick={() => pushtoprodetail(index)}>
+                    <div key={index} className='flex justify-between min-w-48 px-4 py-4 cursor-pointer relative'data-aos="fade-up" >
                         <div className='w-[16rem] mx-auto bg-white rounded-xl shadow-lg card'>
-                            <div className='h-64 overflow-hidden'>
+                            <div className='h-64 overflow-hidden' onClick={() => pushtoprodetail(index)}>
                                 <img className='w-full rounded-xl' src={items.imgurl} alt={items.Productname} />
                             </div>
                             <div className='px-6 py-4'>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import "./Products.css"
@@ -8,12 +8,13 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import Spinner from "../Spinner"
 import { Authentication } from '../../Context/AuthContext'
+import Aos from 'aos'
 
 
 export default function Smartphone() {
 
   const [cartmsg, setcartmsg] = useState(false)
-  const { phone, setphone , prodetail , setprodetail } = useProduct()
+  const { phone, setphone, prodetail, setprodetail } = useProduct()
   const { cartitems, setcartitems } = useCart()
   const { verifyuser, setverifyuser } = useAuth();
   const [loginmodal, setloginmodal] = useState(false)
@@ -21,6 +22,9 @@ export default function Smartphone() {
   const { loading, setLoading } = useContext(Authentication)
   const nav = useNavigate()
 
+  useEffect(()=>{
+    Aos.init()
+  } ,[])
 
   function pushtoprodetail(index) {
     console.clear()
@@ -29,7 +33,7 @@ export default function Smartphone() {
       prodname: phone[index].Productname,
       prodprice: phone[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -40,7 +44,7 @@ export default function Smartphone() {
     });
 
   }
-  
+
 
 
   function pushtocart(index) {
@@ -94,9 +98,9 @@ export default function Smartphone() {
 
               {
                 phone && phone.map((items, index) => (
-                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative z-0' key={index} onClick={()=>pushtoprodetail(index)}>
+                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative z-0' key={index} >
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
-                      <div className='w-full h-60 overflow-hidden'>
+                      <div className='w-full h-60 overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />
                       </div>
                       <div className='px-6 py-4 overflow-hidden'>

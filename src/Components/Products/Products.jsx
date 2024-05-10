@@ -18,7 +18,7 @@ export default function Products() {
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const [cartmsg, setcartmsg] = useState(false)
-  const {prodetail ,setprodetail  } = useProduct()
+  const { prodetail, setprodetail } = useProduct()
   const nav = useNavigate()
 
 
@@ -29,7 +29,7 @@ export default function Products() {
       prodname: phone[index].Productname,
       prodprice: phone[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -47,7 +47,7 @@ export default function Products() {
       prodname: watches[index].Productname,
       prodprice: watches[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -65,7 +65,7 @@ export default function Products() {
       prodname: jackets[index].Productname,
       prodprice: jackets[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -83,7 +83,7 @@ export default function Products() {
       prodname: wallets[index].Productname,
       prodprice: wallets[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -216,7 +216,7 @@ export default function Products() {
 
   return (
     <>
-    <Navbar />
+      <Navbar />
       <div className=' px-10 py-8 flex flex-col justify-center items-center mt-14 md:mt-16 gap-y-10'>
         <div>
           <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
@@ -231,9 +231,9 @@ export default function Products() {
 
             {
               phone && phone.map((items, index) => (
-                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index} onClick={()=>pushtophonedetail(index)}>
+                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index}>
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
-                    <div className='w-full h-60 overflow-hidden'>
+                    <div className='w-full h-60 overflow-hidden' onClick={() => pushtophonedetail(index)}>
                       <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />
                     </div>
                     <div className='px-6 py-4 overflow-hidden'>
@@ -257,9 +257,9 @@ export default function Products() {
           <div className='flex justify-center md:justify-between gap-y-5 flex-wrap px-4 py-4 mt-5 bg-white rounded-xl'>
             {
               watches && watches.map((items, index) => (
-                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtowatchdetail(index)}>
+                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index} >
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
-                    <div className='h-64 w-full overflow-hidden'>
+                    <div className='h-64 w-full overflow-hidden' onClick={() => pushtowatchdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                     </div>
                     <div className='px-6 py-4'>
@@ -285,9 +285,9 @@ export default function Products() {
 
             {
               jackets && jackets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtojacketdetail(index)}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
-                    <div className='h-64 w-full overflow-hidden'>
+                    <div className='h-64 w-full overflow-hidden' onClick={() => pushtojacketdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                     </div>
                     <div className='px-6 py-4'>
@@ -311,9 +311,9 @@ export default function Products() {
           <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
             {
               wallets && wallets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=>pushtowalletdetail(index)}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
-                    <div className='h-64 w-full overflow-hidden'>
+                    <div className='h-64 w-full overflow-hidden' onClick={() => pushtowalletdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                     </div>
                     <div className='px-6 py-4'>

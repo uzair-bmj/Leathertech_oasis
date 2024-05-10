@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
 import useProduct from "../../Hooks/useProduct"
 import { Authentication } from '../../Context/AuthContext'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Featured() {
 
@@ -15,6 +17,10 @@ export default function Featured() {
     const { prodetail, setprodetail } = useProduct()
     const { loading, setLoading } = useContext(Authentication)
     const nav = useNavigate()
+    
+    useEffect(() => {
+        Aos.init({ duration: 1000 })
+    }, []);
 
 
     function pushtoprodetail(index) {
@@ -75,9 +81,9 @@ export default function Featured() {
                     {
                         featured.map((items, index) => {
                             return (
-                                <div className=' shadow-lg rounded-xl cursor-pointer card relative' key={index} onClick={() => pushtoprodetail(index)}>
+                                <div className=' shadow-lg rounded-xl cursor-pointer card relative' key={index} data-aos = "fade-up" >
                                     <div className='w-[16rem] '>
-                                        <div className='h-64 overflow-hidden'>
+                                        <div className='h-64 overflow-hidden' onClick={() => pushtoprodetail(index)}>
                                             <img src={items.imgurl} alt={items.Productname} className='w-full rounded-xl overflow-hidden' />
                                         </div>
                                         <div className='px-6 py-4'>

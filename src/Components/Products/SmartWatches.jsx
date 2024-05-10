@@ -93,9 +93,9 @@ export default function SmartWatches() {
 
               {
                 watches && watches.map((items, index) => (
-                  <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' onClick={()=>pushtoprodetail(index)} key={index}>
+                  <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index}>
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
-                      <div className='h-64 w-full overflow-hidden'>
+                      <div className='h-64 w-full overflow-hidden' onClick={()=>pushtoprodetail(index)} >
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                       </div>
                       <div className='px-6 py-4'>

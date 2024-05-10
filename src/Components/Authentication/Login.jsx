@@ -44,7 +44,7 @@ export default function Login() {
 
             <div className='bg-gray-300 h-screen flex justify-center items-center  md:mt-8'>
                 <form action="">
-                    <div className=' bg-gray-100  py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login w-[90vw] sm:w-[60vw] md:w-[40vw] lg:w-[40vw]'>
+                    <div className=' bg-gray-100  py-10 px-10 rounded-xl shadow-lg flex flex-col gap-y-7 login w-[90vw] sm:w-[60vw] md:w-[40vw] lg:w-[35vw]'>
                         <h1 className='text-2xl text-center font-medium'>LOGIN</h1>
                         <input type="email" className='py-2 px-4 rounded ' required placeholder='Email' onChange={(e) => setloginemail(e.target.value)} />
                         <input type="Password" className='py-2 px-4 rounded ' required placeholder='Password' onChange={(e) => setloginpassword(e.target.value)} />

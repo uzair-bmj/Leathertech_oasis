@@ -39,6 +39,10 @@ export default function MyOrder() {
 
   }
 
+  function navtoshop(){
+    setLoading(true)
+    nav('/products')
+  }
 
   return (
     <>
@@ -58,16 +62,27 @@ export default function MyOrder() {
                     <h1 className='text-gray-500 font-medium  text-sm md:text-lg'>Price</h1>
                   </div>
                   {
-                    orderdetail.map((order, index) => (
-                      order.products.map((product, productIndex) => (
-                        <div key={`${index}-${productIndex}`} className='flex justify-between relative w-full items-center '>
-                          <img src={product.productimage} alt="" className='w-10 h-10 md:w-12 md:h-12 rounded-full ' />
-                          <h1 className=''>{product.productName}</h1>
-                          <h1 className=''>{product.productquantity}</h1>
-                          <h1>${product.productprice}</h1>
-                        </div>
+                    orderdetail && orderdetail.length > 0 ? (
+                      orderdetail.map((order, index) => (
+                        order.products.map((product, productIndex) => (
+                          <div key={`${index}-${productIndex}`} className='flex justify-between relative w-full items-center '>
+                            <img src={product.productimage} alt="" className='w-10 h-10 md:w-12 md:h-12 rounded-full ' />
+                            <h1 className=''>{product.productName}</h1>
+                            <h1 className=''>{product.productquantity}</h1>
+                            <h1>${product.productprice}</h1>
+                          </div>
+                        ))
                       ))
-                    ))
+                    ) : (
+                      <>
+                        <div className='grid justify-center items-center gap-y-3  mt-5'>
+                          <h1 className='text-center'>No order</h1>
+                          <button className='btn px-4 py-2 rounded-full ' onClick={navtoshop}>Go to shop</button>
+                        </div>
+
+                      </>
+                    )
+
                   }
 
                 </div>

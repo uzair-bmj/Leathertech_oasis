@@ -16,7 +16,7 @@ export default function Leatherjackets() {
   const [loginmodal, setloginmodal] = useState(false)
   const [existingitemmodal, setexistingitemmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication)
-  const { jackets , prodetail ,setprodetail  } = useProduct()
+  const { jackets, prodetail, setprodetail } = useProduct()
   const nav = useNavigate()
 
 
@@ -27,7 +27,7 @@ export default function Leatherjackets() {
       prodname: jackets[index].Productname,
       prodprice: jackets[index].productPrice,
     };
-  
+
     setprodetail([proobj]);
     console.log(prodetail);
     nav('/prodetail');
@@ -93,9 +93,9 @@ export default function Leatherjackets() {
 
               {
                 jackets && jackets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} onClick={()=> pushtoprodetail(index)}>
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} >
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
-                      <div className='h-64 w-full overflow-hidden'>
+                      <div className='h-64 w-full overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
                       </div>
                       <div className='px-6 py-4'>
