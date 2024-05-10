@@ -6,6 +6,8 @@ import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
 import { Link, useNavigate } from 'react-router-dom'
 import { Authentication } from '../../Context/AuthContext'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Productdetail() {
@@ -19,6 +21,9 @@ export default function Productdetail() {
     const { loading, setLoading } = useContext(Authentication)
     const nav = useNavigate()
 
+    useEffect(() => {
+        Aos.init({ duration: 1000 })
+    }, []);
 
     function pushtocart() {
         if (verifyuser) {
@@ -61,25 +66,25 @@ export default function Productdetail() {
 
                 <div className='md:block hidden '>
                     <div className='absolute top-20 left-16'>
-                        <h2 className='price text-lg '>Back to <Link to="/">home</Link></h2>
+                        <h2 className='price text-lg ' data-aos="fade-right">Back to <Link to="/">home</Link></h2>
                     </div>
                     {
                         prodetail && prodetail.map((items, index) => (
                             <div key={index} className='flex justify-center px-8 py-32 gap-x-20 md:w-[90vw]  lg:w-[70vw] m-auto'>
                                 <div className='cursor-pointer rounded-xl shadow-2xl  w-[500px] h-[500px] overflow-hidden bg-gray-300 relative'>
-                                    <img src={items.prodimg} alt="" className='w-[500px] h-[500px] opacity-30 rounded-xl shadow-xl detailimg' />
-                                    <img src={items.prodimg} alt="" className='w-[300px] h-[300px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} />
+                                    <img src={items.prodimg} alt="" className='w-[500px] h-[500px] opacity-30 rounded-xl shadow-xl detailimg' data-aos="fade-right" />
+                                    <img src={items.prodimg} alt="" className='w-[300px] h-[300px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} data-aos="fade-right" />
                                 </div>
                                 {/* product detail */}
                                 <div className='flex justify-between flex-col py-5'>
                                     <div className='flex flex-col gap-y-2'>
-                                        <h1 className='text-2xl font-bold '>{items.prodname}</h1>
-                                        <h2 className='text-lg '>${items.prodprice}</h2>
-                                        <p className='text-sm text-gray-600'>Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Sequi asperiores ipsum  <br />exercitationem in facilisnobis doloribus laborum  <br />magnam consequatur vel?</p>
+                                        <h1 className='text-2xl font-bold ' data-aos="fade-left">{items.prodname}</h1>
+                                        <h2 className='text-lg ' data-aos="fade-left">${items.prodprice}</h2>
+                                        <p className='text-sm text-gray-600' data-aos="fade-left">Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Sequi asperiores ipsum  <br />exercitationem in facilisnobis doloribus laborum  <br />magnam consequatur vel?</p>
                                     </div>
                                     <div className='flex flex-col gap-y-4'>
-                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' onClick={pushtocart}>Add to cart</button>
-                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl'>Add to wishlist</button>
+                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' onClick={pushtocart} data-aos="fade-left">Add to cart</button>
+                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' data-aos="fade-left">Add to wishlist</button>
                                     </div>
                                 </div>
                             </div>
@@ -100,18 +105,18 @@ export default function Productdetail() {
                                             <img src={items.prodimg} alt="" className=' w-[150px] h-[200px] opacity-30 rounded-xl shadow-xl detailimg' />
                                             <img src={items.prodimg} alt="" className=' w-[150px] h-[200px] opacity-30 rounded-xl shadow-xl detailimg' />
                                         </div>
-                                        <i class="fa-solid fa-arrow-left absolute top-2 left-4 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
-                                        <img src={items.prodimg} alt="" className='w-[150px] h-[150px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} />
+                                        <i class="fa-solid fa-arrow-left absolute top-2 left-4 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome} data-aos = "fade-up"></i>
+                                        <img src={items.prodimg} alt="" className='w-[150px] h-[150px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }}  data-aos = "fade-up"/>
                                     </div>
                                     <div className='flex justify-between flex-col py-5 px-5 gap-y-10'>
                                         <div className='flex flex-col gap-y-2'>
-                                            <h1 className='text-2xl font-bold '>{items.prodname}</h1>
-                                            <h2 className='text-lg '>${items.prodprice}</h2>
-                                            <p className='text-sm text-gray-600'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores ipsum exercitationem in facilisnobis doloribus laborum  magnam consequatur vel?</p>
+                                            <h1 className='text-2xl font-bold ' data-aos = "fade-up">{items.prodname}</h1>
+                                            <h2 className='text-lg ' data-aos = "fade-up">${items.prodprice}</h2>
+                                            <p className='text-sm text-gray-600' data-aos = "fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi asperiores ipsum exercitationem in facilisnobis doloribus laborum  magnam consequatur vel?</p>
                                         </div>
                                         <div className='flex flex-col gap-y-4'>
-                                            <button className='w-full btn px-4 py-2 rounded-xl' onClick={pushtocart}>Add to cart</button>
-                                            <button className='w-full btn px-4 py-2 rounded-xl'>Add to wishlist</button>
+                                            <button className='w-full btn px-4 py-2 rounded-xl' onClick={pushtocart} data-aos = "fade-up">Add to cart</button>
+                                            <button className='w-full btn px-4 py-2 rounded-xl' data-aos = "fade-up">Add to wishlist</button>
                                         </div>
                                     </div>
 

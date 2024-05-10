@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
@@ -6,6 +6,8 @@ import "./Products.css"
 import { Link, useNavigate } from 'react-router-dom'
 import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Products() {
 
@@ -20,6 +22,10 @@ export default function Products() {
   const [cartmsg, setcartmsg] = useState(false)
   const { prodetail, setprodetail } = useProduct()
   const nav = useNavigate()
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+  }, []);
 
 
   function pushtophonedetail(index) {
@@ -219,11 +225,11 @@ export default function Products() {
       <Navbar />
       <div className=' px-10 py-8 flex flex-col justify-center items-center mt-14 md:mt-16 gap-y-10'>
         <div>
-          <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
+          <h1 className='text-lg price ' data-aos = "fade-right">Back to <Link to="/" >Home </Link></h1>
         </div>
-        <h1 className='price text-3xl font-bold '>Products</h1>
+        <h1 className='price text-3xl font-bold ' data-aos = "fade-up">Products</h1>
         <div className='flex flex-col justify-center gap-y-10'>
-          <div className='bg-black rounded-xl relative'>
+          <div className='bg-black rounded-xl relative' data-aos = "fade-up">
             <img src="/phone.jpg" alt="" className='rounded-xl opacity-40 md:h-auto h-[200px]' />
             <h1 className='price text-3xl sm:text-6xl z-10 font-bold absolute top-[50%] left-[50%]' style={{ transform: "translate(-50% ,-50%" }}>SmartPhones</h1>
           </div>
@@ -231,7 +237,7 @@ export default function Products() {
 
             {
               phone && phone.map((items, index) => (
-                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index}>
+                <div className='px-4 w-[18rem] py-4 cursor-pointer relative' key={index} data-aos = "fade-up">
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='w-full h-60 overflow-hidden' onClick={() => pushtophonedetail(index)}>
                       <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -250,14 +256,14 @@ export default function Products() {
           </div>
         </div>
         <div className='flex flex-col justify-center gap-y-10'>
-          <div className='bg-black rounded-xl relative'>
+          <div className='bg-black rounded-xl relative' data-aos = "fade-up">
             <img src="/watch.jpg" alt="" className='rounded-xl opacity-40  md:h-auto h-[200px]' />
             <h1 className='price text-3xl sm:text-6xl z-10 font-bold absolute top-[50%] left-[50%]' style={{ transform: "translate(-50% ,-50%" }}>SmartWatches</h1>
           </div>
           <div className='flex justify-center md:justify-between gap-y-5 flex-wrap px-4 py-4 mt-5 bg-white rounded-xl'>
             {
               watches && watches.map((items, index) => (
-                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index} >
+                <div className='w-[18rem] overflow-hidden px-4  py-4 cursor-pointer relative' key={index} data-aos = "fade-up" >
                   <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden' onClick={() => pushtowatchdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -277,7 +283,7 @@ export default function Products() {
           </div>
         </div>
         <div className='flex flex-col justify-center gap-y-10'>
-          <div className='bg-black rounded-xl relative'>
+          <div className='bg-black rounded-xl relative' data-aos = "fade-up">
             <img src="/jacket.jpg" alt="" className='rounded-xl opacity-40 md:h-auto h-[200px]' />
             <h1 className='price text-3xl sm:text-6xl z-10 font-bold absolute top-[50%] left-[50%]' style={{ transform: "translate(-50% ,-50%" }}>Leather Jackets</h1>
           </div>
@@ -285,7 +291,7 @@ export default function Products() {
 
             {
               jackets && jackets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} data-aos = "fade-up">
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden' onClick={() => pushtojacketdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
@@ -304,14 +310,14 @@ export default function Products() {
           </div>
         </div>
         <div className='flex flex-col justify-center gap-y-10'>
-          <div className='bg-black rounded-xl relative'>
+          <div className='bg-black rounded-xl relative' data-aos = "fade-up">
             <img src="/wallet.jpg" alt="" className='rounded-xl opacity-40  md:h-auto h-[200px]' />
             <h1 className='price text-3xl sm:text-6xl z-10 font-bold absolute top-[50%] left-[50%]' style={{ transform: "translate(-50% ,-50%" }}>Leather Wallets</h1>
           </div>
           <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
             {
               wallets && wallets.map((items, index) => (
-                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}>
+                <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} data-aos = "fade-up">
                   <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                     <div className='h-64 w-full overflow-hidden' onClick={() => pushtowalletdetail(index)}>
                       <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />

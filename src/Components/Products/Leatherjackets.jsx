@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useAuth from '../../Hooks/useAuth'
 import useCart from '../../Hooks/useCart'
@@ -7,6 +7,8 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
 import Spinner from "../Spinner"
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Leatherjackets() {
 
@@ -19,6 +21,9 @@ export default function Leatherjackets() {
   const { jackets, prodetail, setprodetail } = useProduct()
   const nav = useNavigate()
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+}, []);
 
   function pushtoprodetail(index) {
     console.clear()
@@ -79,21 +84,21 @@ export default function Leatherjackets() {
           <Navbar />
 
           <div className=' flex flex-col justify-center gap-y-10 px-8 py-4'>
-            <div className='mt-14 md:mt-16 relative bg-black rounded-xl '>
+            <div className='mt-14 md:mt-16 relative bg-black rounded-xl ' data-aos= "fade-up">
               <img src="./jacket.jpg " className='rounded-xl opacity-30 md:h-auto h-[200px]' alt="" />
               <h1 className='text-2xl md:text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER JACKETS</h1>
             </div>
-            <div>
+            <div data-aos= "fade-right">
               <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
             </div>
-            <div className='text-center mt-2'>
+            <div className='text-center mt-2' data-aos= "fade-up">
               <h1 className='text-gray-500 text-xl md:text-3xl font-bold'>JACKETS -<span className='text-xl md:text-2xl' style={{ color: "rgb(255, 187, 51)" }}>that weather adventures.</span></h1>
             </div>
             <div className='flex justify-center md:justify-evenly flex-wrap py-4 bg-white rounded-xl'>
 
               {
                 jackets && jackets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} >
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}  data-aos= "fade-up">
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='h-64 w-full overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />

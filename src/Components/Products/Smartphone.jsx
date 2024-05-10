@@ -8,7 +8,8 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import Spinner from "../Spinner"
 import { Authentication } from '../../Context/AuthContext'
-import Aos from 'aos'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Smartphone() {
@@ -22,9 +23,9 @@ export default function Smartphone() {
   const { loading, setLoading } = useContext(Authentication)
   const nav = useNavigate()
 
-  useEffect(()=>{
-    Aos.init()
-  } ,[])
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+}, []);
 
   function pushtoprodetail(index) {
     console.clear()
@@ -84,21 +85,21 @@ export default function Smartphone() {
         <>
           <Navbar />
           <div className=' flex flex-col justify-center gap-y-10 px-4 py-4'>
-            <div className='mt-14 md:mt-16 relative bg-black rounded-xl'>
+            <div className='mt-14 md:mt-16 relative bg-black rounded-xl' data-aos ="fade-up">
               <img src="./phone.jpg " className='rounded-xl opacity-30 md:h-auto h-[200px]' alt="" />
               <h1 className='text-2xl md:text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>SMART PHONES</h1>
             </div>
             <div>
-              <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
+              <h1 className='text-lg price ' data-aos = "fade-right">Back to <Link to="/">Home </Link></h1>
             </div>
-            <div className='text-center mt-2'>
+            <div className='text-center mt-2' data-aos ="fade-up">
               <h1 className='text-gray-500 text-xl md:text-3xl font-bold'>SMART PHONES -<span className='text-lg md:text-2xl' style={{ color: "rgb(255, 187, 51)" }}>Devices that connect worlds.</span></h1>
             </div>
             <div className='flex justify-center md:justify-between gap-y-5 flex-wrap px-4 py-4 bg-white rounded-xl'>
 
               {
                 phone && phone.map((items, index) => (
-                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative z-0' key={index} >
+                  <div className='px-4 w-[18rem] py-4 cursor-pointer relative z-0' key={index}  data-aos ="fade-up">
                     <div className='min-w-48 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='w-full h-60 overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className=' h-64 rounded-xl' src={items.imgurl} alt={items.Productname} />

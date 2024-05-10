@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useProduct from '../../Hooks/useProduct'
 import useCart from '../../Hooks/useCart'
 import useAuth from '../../Hooks/useAuth'
@@ -7,6 +7,8 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
 import Spinner from "../Spinner"
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function Leatherwallets() {
@@ -20,6 +22,9 @@ export default function Leatherwallets() {
   const { wallets, prodetail, setprodetail } = useProduct()
   const nav = useNavigate()
 
+  useEffect(() => {
+    Aos.init({ duration: 1000 })
+}, []);
 
   function pushtoprodetail(index) {
     console.clear()
@@ -79,20 +84,20 @@ export default function Leatherwallets() {
           <Navbar />
 
           <div className='flex flex-col justify-center gap-y-10 px-4 py-4' >
-            <div className='mt-14 md:mt-16 relative bg-black rounded-xl'>
+            <div className='mt-14 md:mt-16 relative bg-black rounded-xl' data-aos = "fade-up">
               <img src="./wallet.jpg " className='rounded-xl opacity-30 md:h-auto h-[200px]' alt="" />
               <h1 className='text-2xl md:text-5xl text-center font-bold absolute top-[50%] left-[50%] heading'>LEATHER WALLETS</h1>
             </div>
             <div>
-              <h1 className='text-lg price '>Back to <Link to="/">Home </Link></h1>
+              <h1 className='text-lg price ' data-aos = "fade-right">Back to <Link to="/">Home </Link></h1>
             </div>
-            <div className='text-center mt-5'>
+            <div className='text-center mt-5' data-aos = "fade-up">
               <h1 className='text-gray-500 text-xl md:text-3xl font-bold'>WALLETS -<span className='text-xl md:text-2xl' style={{ color: "rgb(255, 187, 51)" }}> that carry stories.</span></h1>
             </div>
             <div className='flex justify-center md:justify-between flex-wrap px-4 py-4 bg-white rounded-xl'>
               {
                 wallets && wallets.map((items, index) => (
-                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index} >
+                  <div className='w-[18rem] px-4  py-4 cursor-pointer relative' key={index}  data-aos = "fade-up">
                     <div className='min-w-44 mx-auto bg-white rounded-xl shadow-lg card' >
                       <div className='h-64 w-full overflow-hidden' onClick={() => pushtoprodetail(index)}>
                         <img className='rounded-xl' src={items.imgurl} alt={items.Productname} />
