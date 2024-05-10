@@ -97,7 +97,7 @@ export default function Navbar() {
                         </div>
                     ) : (
                         <Link to="/login">
-                            <form action="" className='relative loginbt rounded-xl'>
+                            <form action="" className='relative loginbt rounded-xl' data-aos = "fade-left">
                                 <input type="submit" value="Login" className='text-lg px-4 py-1 cursor-pointer pl-12' />
                                 <i className="fa-regular fa-circle-user absolute left-3 top-1/2 transform -translate-y-1/2" style={{ fontSize: "18px" }}></i>
                             </form>

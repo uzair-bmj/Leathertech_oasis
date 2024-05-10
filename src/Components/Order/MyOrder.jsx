@@ -8,6 +8,8 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
 import Spinner from "../Spinner"
+import Aos from 'aos'
+import 'aos/dist/aos.css';
 
 export default function MyOrder() {
 
@@ -19,10 +21,12 @@ export default function MyOrder() {
 
 
 
+
   useEffect(() => {
     if (!verifyuser) {
       nav('/login')
       setloginmodal(true)
+      Aos.init({duration : 1000})
 
 
     }
@@ -51,9 +55,9 @@ export default function MyOrder() {
           <Navbar />
           <div className='lg:h-[100vh] px-8 py-8 '>
             <div className='mt-24 flex flex-col justify-center items-center'>
-              <h1 className='price font-bold  text-3xl '>MY ORDERS</h1>
+              <h1 className='price font-bold  text-3xl ' data-aos ="fade-up">MY ORDERS</h1>
               <div className='flex flex-col justify-center items-center gap-x-4 lg:flex-row'>
-                <div className='flex flex-col gap-y-3 mt-10  px-5 py-5 w-[90vw] md:w-[60vw] lg:w-[40vw] rounded-xl bg-white '>
+                <div className='flex flex-col gap-y-3 mt-10  px-5 py-5 w-[90vw] md:w-[60vw] lg:w-[40vw] rounded-xl bg-white ' data-aos ="fade-right">
                   <h1 className='price text-center font-bold text-xl '>ITEMS DETAIL </h1>
                   <div className='flex justify-between   w-full  relative items-center'>
                     <h1 className='text-gray-500 font-medium  text-sm md:text-lg'>Image</h1>
@@ -86,7 +90,7 @@ export default function MyOrder() {
                   }
 
                 </div>
-                <div className='px-5 py-5 md:w-[50vw] w-[90vw] lg:w-[30vw] bg-white mt-10 rounded-xl '>
+                <div className='px-5 py-5 md:w-[50vw] w-[90vw] lg:w-[30vw] bg-white mt-10 rounded-xl ' data-aos ="fade-left">
                   <h1 className='price text-center font-bold text-xl '>CUSTOMER DETAIL </h1>
                   {orderdetail && orderdetail.map((item, index) => (
                     <div className='customer mt-5' key={item.id || index}>

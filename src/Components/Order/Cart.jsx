@@ -6,6 +6,9 @@ import Navbar from "../Landing Page/Navbar"
 import Footer from "../Landing Page/Footer"
 import { Authentication } from '../../Context/AuthContext'
 import Spinner from '../Spinner'
+import Aos from 'aos'
+import 'aos/dist/aos.css';
+
 
 export default function Cart() {
 
@@ -23,6 +26,7 @@ export default function Cart() {
     const cal = cartitems.reduce((accu, item) => accu + (item.proprice * item.proquantity), 0);
     console.log(cal)
     settotal(cal);
+    Aos.init({duration : 1000})
 
     const totalitems = cartitems.reduce((accu, items) => accu + items.proquantity, 0)
     setitemstotal(totalitems)
@@ -77,18 +81,18 @@ export default function Cart() {
         <>
           <Navbar />
           <div className='py-10 descart'>
-            <div className='w-full px-8 py-4 m-auto mt-9 md:mt-20  relative'>
+            <div className='w-full px-8 py-4 m-auto mt-9 md:mt-20  relative'  data-aos = "fade-up">
               <img src="https://images.pexels.com/photos/341523/pexels-photo-341523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" className='w-full h-[60vh] opacity-30 shadow-2xl rounded-xl' alt="" />
               <h1 className='absolute top-[50%] left-[50%] text-3xl md:text-4xl lg:text-6xl font-bold price' style={{ transform: "translate(-50% , -50%)" }}>Products Cart</h1>
             </div>
             <div className='flex flex-col justify-center items-center mt-10'>
-              <h1 className='text-3xl font-bold price text-center'>My Cart</h1>
+              <h1 className='text-3xl font-bold price text-center' data-aos = "fade-up">My Cart</h1>
               <div className='flex justify-between w-[80vw] '>
-                <div className='mt-5 px-4 py-2 rounded-lg flex flex-col justify-between md:flex-row  items-center text-xl ' style={{ border: "1px solid black" }}>
+                <div className='mt-5 px-4 py-2 rounded-lg flex flex-col justify-between md:flex-row  items-center text-xl ' style={{ border: "1px solid black" }} data-aos = "fade-right">
                   <h1 className='text-sm sm:text-lg md:text-xl  font-medium'>Total Items : </h1>
                   <h1 className='text-sm sm:text-lg md:text-xl price'>{itemstotal} </h1>
                 </div>
-                <div className='flex flex-col justify-between items-center md:flex-row gap-x-2 px-4 py-2 rounded-lg mt-5' style={{ border: "1px solid black" }}>
+                <div className='flex flex-col justify-between items-center md:flex-row gap-x-2 px-4 py-2 rounded-lg mt-5' style={{ border: "1px solid black" }} data-aos='fade-left'>
                   <h1 className='text-md sm:text-lg md:text-xl font-medium'>Total Price:</h1>
                   <h1 className='price text-md sm:text-lg md:text-xl font-bold  '> {`$${total}`}</h1>
                 </div>
@@ -97,7 +101,7 @@ export default function Cart() {
                 {
                   cartitems && cartitems.length > 0 ? (
                     cartitems.map((items, index) => (
-                      <div key={index} className='flex justify-between items-center gap-y-5 md:px-4 px-2 lg:px-8 py-1 md:py-2 rounded-xl' style={{ border: "1px solid black" }}>
+                      <div key={index} className='flex justify-between items-center gap-y-5 md:px-4 px-2 lg:px-8 py-1 md:py-2 rounded-xl' style={{ border: "1px solid black" }} data-aos = "fade-up">
                         <img src={items.proimg} alt="" className='w-12 h-14' />
                         <div className='w-[15vw]'>
                           <h1 className='text-sm md:text-lg text-gray-500 font-semibold'>Product Name</h1>
@@ -120,7 +124,7 @@ export default function Cart() {
                     ))
                   ) : (
                     <>
-                      <div className='text-center py-2'>
+                      <div className='text-center py-2' data-aos ="fade-up">
                         <h1 className='text-xl font-semibold '>Your Cart is empty</h1>
                         <button className='px-4 py-2 shopbtn rounded-full mt-4' onClick={navtoproducts}>Go to Shop</button>
                       </div>
@@ -128,9 +132,9 @@ export default function Cart() {
                     </>
                   )}
               </div>
-              <div className='flex flex-col justify-center gap-y-2 rounded-lg md:w-[30vw] lg:w-[30vw] sm:w-[50vw] w-[80vw] items-center px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }}>
-                <h1 className='text-gray-500 font-bold'>Sub Total : </h1> <span className='text-2xl  font-bold price'>{`$${total}`}</span>
-                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}>Proceed to Checkout</button>
+              <div className='flex flex-col justify-center gap-y-2 rounded-lg md:w-[30vw] lg:w-[30vw] sm:w-[50vw] w-[80vw] items-center px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }} data-aos ="fade-up"> 
+                <h1 className='text-gray-500 font-bold'data-aos ="fade-up">Sub Total : </h1> <span className='text-2xl  font-bold price' data-aos ="fade-up">{`$${total}`} </span>
+                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}  data-aos ="fade-up">Proceed to Checkout</button>
               </div>
             </div>
 
@@ -149,7 +153,7 @@ export default function Cart() {
           }
           <div className='mobilecart w-[100vw]'>
             <div className=' py-8 px-8 flex flex-col justify-between h-screen relative'>
-              <div className='flex gap-x-4'>
+              <div className='flex gap-x-4' data-aos ="fade-right">
                 <i class="fa-solid fa-arrow-left mt-1 icon focus:scale-110 cursor-pointer" style={{ fontSize: "20px" }} onClick={navtohome}></i>
                 <h1 className='price font-bold text-lg'>My Cart</h1>
               </div>
@@ -159,7 +163,7 @@ export default function Cart() {
                     cartitems && cartitems.length > 0 ? (
                       cartitems.map((items, index) => (
                         <>
-                          <div key={index} className='flex justify-between relative '>
+                          <div key={index} className='flex justify-between relative ' data-aos ="fade-up">
                             <div className='shadow-lg'>
                               <img src={items.proimg} alt="" className='h-24 w-24 rounded-lg shadow-lg' />
                             </div>
@@ -181,7 +185,7 @@ export default function Cart() {
 
                     ) : (
                       <>
-                        <div className='flex flex-col justify-center items-center gap-y-4  py-20'>
+                        <div className='flex flex-col justify-center items-center gap-y-4  py-20' data-aos ="fade-up">
                           <h1 className='text-xl'>Cart is empty</h1>
                           <button className='px-4 py-2 btn rounded-xl ' onClick={navtoproducts}>Shop Now</button>
                         </div>
@@ -195,16 +199,16 @@ export default function Cart() {
                 </div>
               {/* order info */}
               <div className='mt-8 '>
-                <h1>Order info</h1>
+                <h1  data-aos ="fade-right">Order info</h1>
                 <div className='orderinfo gap-y-1 mt-2'>
-                  <h1 className='text-sm text-gray-700'>Subtotal</h1>
-                  <h1 className='text-sm text-gray-700'>{`$${total}`}</h1>
-                  <h1 className='text-sm text-gray-700'>Shipping Cost</h1>
-                  <h1 className='text-sm text-gray-700'>Subtotal</h1>
-                  <h1 className='text-md '>Total</h1>
-                  <h1 className='text-md'>{`$${total}`}</h1>
+                  <h1 className='text-sm text-gray-700'  data-aos ="fade-right">Subtotal</h1>
+                  <h1 className='text-sm text-gray-700'  data-aos ="fade-left">{`$${total}`}</h1>
+                  <h1 className='text-sm text-gray-700' data-aos ="fade-right"> Shipping Cost</h1>
+                  <h1 className='text-sm text-gray-700' data-aos ="fade-left"> free</h1>
+                  <h1 className='text-md '  data-aos ="fade-right">Total</h1>
+                  <h1 className='text-md'  data-aos ="fade-left">{`$${total}`}</h1>
                 </div>
-                <button className='px-4 py-2 mt-4 btn rounded-xl w-full' onClick={proceedtoorder}>Checkout</button>
+                <button className='px-4 py-2 mt-4 btn rounded-xl w-full' onClick={proceedtoorder} data-aos ="fade-up">Checkout</button>
               </div>
 
 

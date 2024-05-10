@@ -95,13 +95,13 @@ export default function Order() {
       {loading ? <Spinner /> : (
         <>
           <Navbar />
-          <div className=' mt-16 bg-gray-300'>
+          <div className=' md:mt-16 bg-gray-300'>
             <div className='text-center flex justify-center px-10 py-5 items-center flex-col '>
               <div className='mt-12'>
-                <h1 className='price text-2xl font-bold'>CHECKOUT</h1>
+                <h1 className='price text-2xl font-bold' data-aos ="fade-up">CHECKOUT</h1>
               </div>
               <div className='flex justify-between flex-wrap gap-x-5 lg:gap-y-5 '>
-                <div className='flex flex-col justify-center lg:h-[400px] gap-y-8 bg-white mt-10 w-[90vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] rounded-xl px-6 py-5'>
+                <div className='flex flex-col justify-center lg:h-[400px] gap-y-8 bg-white mt-10 w-[90vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] rounded-xl px-6 py-5' data-aos ="fade-right">
                   <div>
                     <h1 className='text-lg font-medium'>Customer Details</h1>
                   </div>
@@ -151,7 +151,7 @@ export default function Order() {
                   }
 
                 </div>
-                <div className='flex flex-col justify-between  gap-y-5 bg-white px-6 py-6 mt-10 rounded-xl md:w-[70vw] w-[90vw] lg:w-[30vw]'>
+                <div className='flex flex-col justify-between  gap-y-5 bg-white px-6 py-6 mt-10 rounded-xl md:w-[70vw] w-[90vw] lg:w-[30vw]' data-aos ="fade-left">
                   <div>
                     <h1>Total Amount</h1>
                     <h1 className='price font-bold text-xl'>{`$${total || 0}`}</h1>
