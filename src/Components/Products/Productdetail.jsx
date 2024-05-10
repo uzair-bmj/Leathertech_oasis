@@ -76,15 +76,15 @@ export default function Productdetail() {
                                     <img src={items.prodimg} alt="" className='w-[300px] h-[300px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} data-aos="fade-right" />
                                 </div>
                                 {/* product detail */}
-                                <div className='flex justify-between flex-col py-5'>
+                                <div className='flex justify-between flex-col py-5' data-aos = "fade-left">
                                     <div className='flex flex-col gap-y-2'>
-                                        <h1 className='text-2xl font-bold ' data-aos="fade-left">{items.prodname}</h1>
-                                        <h2 className='text-lg ' data-aos="fade-left">${items.prodprice}</h2>
-                                        <p className='text-sm text-gray-600' data-aos="fade-left">Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Sequi asperiores ipsum  <br />exercitationem in facilisnobis doloribus laborum  <br />magnam consequatur vel?</p>
+                                        <h1 className='text-2xl font-bold ' >{items.prodname}</h1>
+                                        <h2 className='text-lg ' >${items.prodprice}</h2>
+                                        <p className='text-sm text-gray-600' >Lorem ipsum dolor sit amet consectetur <br />adipisicing elit. Sequi asperiores ipsum  <br />exercitationem in facilisnobis doloribus laborum  <br />magnam consequatur vel?</p>
                                     </div>
                                     <div className='flex flex-col gap-y-4'>
-                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' onClick={pushtocart} data-aos="fade-left">Add to cart</button>
-                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' data-aos="fade-left">Add to wishlist</button>
+                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' onClick={pushtocart} >Add to cart</button>
+                                        <button className='w-[25vw] btn px-4 py-2 rounded-xl' >Add to wishlist</button>
                                     </div>
                                 </div>
                             </div>

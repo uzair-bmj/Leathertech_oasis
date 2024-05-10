@@ -15,9 +15,9 @@ function Landingpage() {
     return (
         <>
             <div className='w-full bg-gray-300'>
-                
                 {loading ? <Spinner /> : (
                     <>
+
                         <Navbar />
                         <Hero />
                         <Categories />

@@ -30,8 +30,10 @@ function App() {
       <div className='bg-gray-300'>
 
 
+
         {loading ? <Spinner /> : (
           <>
+
             <Routes>
               <Route path='/' element={<Landingpage />} />
               <Route path='/login' element={<Login />} />
@@ -50,6 +52,7 @@ function App() {
             </Routes>
           </>
         )}
+            
 
       </div>
     </Router>

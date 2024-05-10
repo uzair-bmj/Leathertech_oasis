@@ -19,19 +19,13 @@ export default function MyOrder() {
   const [loginmodal, setloginmodal] = useState(false)
   const { loading, setLoading } = useContext(Authentication);
 
-
-
-
   useEffect(() => {
     if (!verifyuser) {
       nav('/login')
       setloginmodal(true)
       Aos.init({duration : 1000})
-
-
     }
   }, [verifyuser])
-
 
   const navigatetohome = () => {
     setLoading(true)

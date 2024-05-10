@@ -133,8 +133,8 @@ export default function Cart() {
                   )}
               </div>
               <div className='flex flex-col justify-center gap-y-2 rounded-lg md:w-[30vw] lg:w-[30vw] sm:w-[50vw] w-[80vw] items-center px-6 mx-32 py-8 mt-8 text-center' style={{ border: "1px solid gray" }} data-aos ="fade-up"> 
-                <h1 className='text-gray-500 font-bold'data-aos ="fade-up">Sub Total : </h1> <span className='text-2xl  font-bold price' data-aos ="fade-up">{`$${total}`} </span>
-                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}  data-aos ="fade-up">Proceed to Checkout</button>
+                <h1 className='text-gray-500 font-bold' >Sub Total : </h1> <span className='text-2xl  font-bold price'  >{`$${total}`} </span>
+                <button className='shopbtn px-3 py-1 rounded-lg' onClick={proceedtoorder}   >Proceed to Checkout</button>
               </div>
             </div>
 
