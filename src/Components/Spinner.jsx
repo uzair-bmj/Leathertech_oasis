@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { BounceLoader, PropagateLoader, PulseLoader } from 'react-spinners';
+import { BounceLoader, PropagateLoader, PuffLoader, PulseLoader, ScaleLoader } from 'react-spinners';
 import "./spinner.css";
 import { Authentication } from "../Context/AuthContext"; 
 
@@ -14,7 +14,7 @@ export default function Spinner() {
     if (loading) {
       setTimeout(() => {
         setLoading(false);
-      }, 1000);
+      }, 2000);
     }
   }, [loading, setLoading]);
 
@@ -22,11 +22,10 @@ export default function Spinner() {
     <div className="spinner-container">
       {loading ? (
         <div className="spinner-wrapper">
-          <PulseLoader
-
+          <ScaleLoader
             color={color}
             loading={loading}
-            size={15}
+            size={1000}
             aria-label="Loading Spinner"
             data-testid="loader"
      

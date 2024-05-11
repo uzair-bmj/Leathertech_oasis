@@ -29,6 +29,8 @@ export default function Navbar() {
 
     function show() {
         setshowicons(!showicons)
+        // const mobanim = document.getElementById('mobilemenu');
+        // mobanim.classList.add('mobanimation')
     }
     function logout() {
         setverifyuser(false)
@@ -109,7 +111,7 @@ export default function Navbar() {
 
 
             {showicons && (
-                <div className={`mobilemenu ${showicons ? 'show-menu' : ''}`}>
+                <div className='mobilemenu' data-aos = "fade-right">
                     <i class="fa-solid fa-xmark cursor-pointer relative top-8 left-10 baricon" style={{ fontSize: "30px" }} onClick={show} data-aos ="fade-right"></i>
                     <h1 className='text-xl font-bold text-center' data-aos ="fade-right">LEATHERTECH <br /> OASIS</h1>
                     <div className='w-full h-screen  px-4 text-center mt-5'>

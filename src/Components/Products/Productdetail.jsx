@@ -71,9 +71,9 @@ export default function Productdetail() {
                     {
                         prodetail && prodetail.map((items, index) => (
                             <div key={index} className='flex justify-center px-8 py-32 gap-x-20 md:w-[90vw]  lg:w-[70vw] m-auto'>
-                                <div className='cursor-pointer rounded-xl shadow-2xl  w-[500px] h-[500px] overflow-hidden bg-gray-300 relative'>
-                                    <img src={items.prodimg} alt="" className='w-[500px] h-[500px] opacity-30 rounded-xl shadow-xl detailimg' data-aos="fade-right" />
-                                    <img src={items.prodimg} alt="" className='w-[300px] h-[300px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }} data-aos="fade-right" />
+                                <div className='cursor-pointer rounded-xl shadow-2xl  w-[500px] h-[500px] overflow-hidden bg-gray-300 relative' data-aos = 'fade-right'>
+                                    <img src={items.prodimg} alt="" className='w-[500px] h-[500px] opacity-30 rounded-xl shadow-xl detailimg'  />
+                                    <img src={items.prodimg} alt="" className='w-[300px] h-[300px] rounded-xl shadow-xl absolute top-[50%] left-[50%] ' style={{ transform: "translate(-50% , -50%)" }}  />
                                 </div>
                                 {/* product detail */}
                                 <div className='flex justify-between flex-col py-5' data-aos = "fade-left">
