@@ -62,7 +62,7 @@ export default function Smartphone() {
             proquantity: 1,
             index: index,
           };
-          cartitems.push(cartobject);
+          setcartitems([...cartitems , cartobject])
           setcartmsg(true);
           console.log(cartitems);
         } else {

@@ -116,7 +116,7 @@ export default function Products() {
             proquantity: 1,
             index: index,
           };
-          cartitems.push(cartobject);
+          setcartitems([...cartitems , cartobj])
           setcartmsg(true);
           console.log(cartitems);
         } else {
@@ -144,8 +144,7 @@ export default function Products() {
             index: index
 
           };
-
-          cartitems.push(cartobject)
+          setcartitems([...cartitems , cartobj])
           setcartmsg(true);
           console.log(cartitems);
         }
@@ -174,7 +173,7 @@ export default function Products() {
             index: index
 
           }
-          cartitems.push(cartobj)
+          setcartitems([...cartitems , cartobj])
           console.log(cartitems)
           setcartmsg(true)
         }
@@ -204,8 +203,7 @@ export default function Products() {
             index: index
 
           };
-
-          cartitems.push(cartobject)
+          setcartitems([...cartitems , cartobj])
           setcartmsg(true);
           console.log(cartitems);
         }

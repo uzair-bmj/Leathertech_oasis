@@ -63,7 +63,7 @@ export default function Leatherwallets() {
 
           };
 
-          cartitems.push(cartobject)
+          setcartitems([...cartitems , cartobject])
           setcartmsg(true);
           console.log(cartitems);
         }

@@ -106,7 +106,7 @@ export default function SmartPhones() {
                         proquantity: 1,
                         index: index
                     }
-                    cartitems.push(cartobj);
+                    setcartitems([...cartitems , cartobj])
                     setcartmsg(true)
 
                 }

@@ -58,8 +58,9 @@ export default function Featured() {
                         proquantity: 1,
                         index: index
                     }
-                    cartitems.push(cartobj);
+                    setcartitems([...cartitems , cartobj]);
                     setcartmsg(true)
+                    
 
                 }
                 else {
@@ -72,7 +73,7 @@ export default function Featured() {
 
 
     }
-
+    
     return (
         <>
             <div className='w-[90vw] md:w-[95vw] px-10 py-5 mt-10 bg-gray-100 m-auto rounded-xl'>

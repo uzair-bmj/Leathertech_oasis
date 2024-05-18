@@ -62,7 +62,7 @@ export default function SmartWatches() {
             index: index
 
           }
-          cartitems.push(cartobj)
+          setcartitems([...cartitems , cartobj])
           console.log(cartitems)
           setcartmsg(true)
         }

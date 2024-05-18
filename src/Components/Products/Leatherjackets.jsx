@@ -61,7 +61,8 @@ export default function Leatherjackets() {
 
           };
 
-          cartitems.push(cartobject)
+          setcartitems([...cartitems , cartobject])
+
           setcartmsg(true);
           console.log(cartitems);
         }

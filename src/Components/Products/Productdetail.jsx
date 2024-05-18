@@ -37,7 +37,7 @@ export default function Productdetail() {
                         proprice: product.prodprice,
                         proquantity: 1,
                     };
-                    cartitems.push(cartobject)
+                    setcartitems([...cartitems , cartobject])
                     setcartmsg(true);
                     prodetail.splice(0, 1)
                 } else {
